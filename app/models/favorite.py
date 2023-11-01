@@ -12,4 +12,11 @@ class Favorite(db.Model):
 
     user = db.relationship('User', back_populates='favorites')
     photocard_listing = db.relationship('PhotocardListing', back_populates='favorites')
-    photocard_image = db.relationship('PhotocardImage', back_populates='favorite')
+    photocard_image = db.relationship('PhotocardImage', back_populates='favorites')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'photocard_listing_id': self.photocard_listing_id,
+            'userId': self.user_id
+        }
