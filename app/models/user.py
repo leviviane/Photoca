@@ -12,7 +12,13 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    first_name = db.Column(db.String, nullable=False)
+    last_name = db.Column(db.String, nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    favorites = db.relationship('Favorite', back_populates='user')
+    photocard_listing = db.relationship('PhotocardListing', back_populates='user')
+    reviews = db.relationship('Review', back_populates='user')
 
     @property
     def password(self):
