@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     favorite = db.relationship('Favorite', back_populates='user')
-    photocard_listing = db.relationship('PhotocardListing', back_populates='user')
+    photocard = db.relationship('Photocard', back_populates='user')
     review = db.relationship('Review', back_populates='user')
 
     @property

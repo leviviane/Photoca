@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 
-class PhotocardListing(db.Model):
-    __tablename__ = 'photocard_listings'
+class Photocard(db.Model):
+    __tablename__ = 'photocards'
 
     if environment == 'production':
         __table_args__ = { 'schema': SCHEMA }
@@ -13,9 +13,9 @@ class PhotocardListing(db.Model):
     description = db.Column(db.Text, nullable=False)
     photocard_image = db.Column(db.String, nullable=False)
 
-    user = db.relationship('User', back_populates='photocard_listing')
-    review = db.relationship('Review', back_populates='photocard_listing')
-    favorite = db.relationship('Favorite', back_populates='photocard_listing')
+    user = db.relationship('User', back_populates='photocard')
+    review = db.relationship('Review', back_populates='photocard')
+    favorite = db.relationship('Favorite', back_populates='photocard')
 
     def to_dict(self):
         return {

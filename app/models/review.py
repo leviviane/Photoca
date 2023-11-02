@@ -9,14 +9,14 @@ class Review(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     # review_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('reviews.id')))
-    photocard_listing_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('photocard_listings.id')))
+    photocard_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('photocards.id')))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     text = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
 
     user = db.relationship('User', back_populates='review')
-    photocard_listing = db.relationship('PhotocardListing', back_populates='review')
+    photocard = db.relationship('Photocard', back_populates='review')
 
     def to_dict(self):
         return {

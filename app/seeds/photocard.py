@@ -1,8 +1,8 @@
-from app.models import db, PhotocardListing, environment, SCHEMA
+from app.models import db, Photocard, environment, SCHEMA
 from sqlalchemy.sql import text
 
-def seed_photocard_listings():
-    photocard1 = PhotocardListing (
+def seed_photocard():
+    photocard1 = Photocard (
         user_id=1,
         listing_name='Heeseung D:D Charybdis',
         price='5.00',
@@ -11,7 +11,7 @@ def seed_photocard_listings():
     )
     db.session.add(photocard1)
 
-    photocard2 = PhotocardListing (
+    photocard2 = Photocard (
         user_id=1,
         listing_name='Heeseung D:D Guitar',
         price='7.00',
@@ -20,7 +20,7 @@ def seed_photocard_listings():
     )
     db.session.add(photocard2)
 
-    photocard3 = PhotocardListing (
+    photocard3 = Photocard (
         user_id=2,
         listing_name='Heeseung Darkblood Era',
         price='10.00',
@@ -29,7 +29,7 @@ def seed_photocard_listings():
     )
     db.session.add(photocard3)
 
-    photocard4 = PhotocardListing (
+    photocard4 = Photocard (
         user_id=2,
         listing_name='Heeseung with Pink Rose',
         price='20.00',
@@ -38,7 +38,7 @@ def seed_photocard_listings():
     )
     db.session.add(photocard4)
 
-    photocard5 = PhotocardListing (
+    photocard5 = Photocard (
         user_id=3,
         listing_name='Specs Heeseung',
         price='50.00',
@@ -47,7 +47,7 @@ def seed_photocard_listings():
     )
     db.session.add(photocard5)
 
-    photocard6 = PhotocardListing (
+    photocard6 = Photocard (
         user_id=3,
         listing_name='School Uniform Heeseung',
         price='10.00',
@@ -56,7 +56,7 @@ def seed_photocard_listings():
     )
     db.session.add(photocard6)
 
-    photocard7 = PhotocardListing (
+    photocard7 = Photocard (
     user_id=3,
     listing_name='Holo Manifesto:Day1 Heeseung',
     price='15.00',
@@ -65,7 +65,7 @@ def seed_photocard_listings():
     )
     db.session.add(photocard7)
 
-    photocard8 = PhotocardListing (
+    photocard8 = Photocard (
     user_id=3,
     listing_name='Border:Carnival Broadcast Heeseung',
     price='150.00',
@@ -76,10 +76,10 @@ def seed_photocard_listings():
 
     db.session.commit()
 
-def undo_photocard_listings():
+def undo_photocard():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.photocard_listing RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.photocard RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM photocard_listing"))
+        db.session.execute(text("DELETE FROM photocard"))
 
     db.session.commit()
