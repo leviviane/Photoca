@@ -39,6 +39,7 @@ def create_listing():
 
         new_photocard_listing = Photocard_listing(
             listing_name = form.data['listing_name'],
+            price = form.data['price'],
             description = form.data['description'],
             photocard_image = upload['url']
         )
@@ -58,6 +59,7 @@ def update_photocard_listing(id):
     if form.validate_on_submit():
         photocard_listing = Photocard_listing.query.get(id)
         photocard_listing.photocard_name = form.data['photocard_name']
+        photocard_listing.price = form.data['price']
         photocard_listing.description = form.data['description']
 
         db.session.commit()
