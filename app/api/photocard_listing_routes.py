@@ -50,7 +50,7 @@ def create_listing():
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 #Update photocard listing
-@photocard_listing_routes.route('</int:id>', methods=['PUT'])
+@photocard_listing_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_photocard_listing(id):
     form = PhotocardListingForm
@@ -68,7 +68,7 @@ def update_photocard_listing(id):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 #Delete photocard listing
-@photocard_listing_routes.route('</int:id>', methods=['DELETE'])
+@photocard_listing_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_photocard_listing(id):
     photocard_listing = Photocard_listing.query.get(id)
@@ -99,7 +99,7 @@ def get_reviews(postId):
 
 
 #Post review for photocard listing
-@photocard_listing_routes.route('</int:postId>/reviews', methods=['POST'])
+@photocard_listing_routes.route('/<int:postId>/reviews', methods=['POST'])
 @login_required
 def create_review(postId):
     user = User.query.get(current_user.id)

@@ -2,7 +2,7 @@ from app.models import db, Review, environment, SCHEMA
 from datetime import date
 from sqlalchemy.sql import text
 
-def seed_review():
+def seed_reviews():
     review1 = Review (
         user_id = 1,
         post_id = 1,
@@ -13,7 +13,7 @@ def seed_review():
 
     db.session.commit()
 
-    def undo_review():
+    def undo_reviews():
         if environment == "production":
             db.session.execute(f"TRUNCATE table {SCHEMA}.review RESTART IDENTITY CASCADE;")
         else:

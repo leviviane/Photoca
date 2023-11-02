@@ -1,7 +1,7 @@
 from app.models import db, Photocard_listing, environment, SCHEMA
 from sqlalchemy.sql import text
 
-def seed_photocard_listing():
+def seed_photocard_listings():
     photocard1 = Photocard_listing (
         user_id=1,
         photocard_name='Heeseung D:D Charybdis',
@@ -76,7 +76,7 @@ def seed_photocard_listing():
 
     db.session.commit()
 
-def undo_photocard_listing():
+def undo_photocard_listings():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.photocard_listing RESTART IDENTITY CASCADE;")
     else:
