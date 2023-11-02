@@ -20,7 +20,7 @@ class Photocard_listing(db.Model):
         return {
             'id': self.id,
             'listing_name': self.listing_name,
-            'userId': self.user_id,
+            'user_id': self.user_id,
             'price': self.price,
             'description': self.description,
             'photocard_image': self.photocard_image
