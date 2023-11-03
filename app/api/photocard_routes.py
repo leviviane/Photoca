@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, redirect
 from flask_login import login_required, current_user
 from app.models import db, Photocard, Review, User
 from app.forms.photocard_form import PhotocardForm
@@ -33,6 +33,7 @@ def create_photocard():
         photocard_image = form.data['photocard_image']
         photocard_image.filename = get_unique_filename(photocard_image.filename)
         upload = upload_file_to_s3(photocard_image)
+        print(upload)
 
         if 'url' not in upload:
             return {'errors': [upload]}
@@ -73,11 +74,14 @@ def update_photocard(id):
 @login_required
 def delete_photocard(id):
     photocard = Photocard.query.get(id)
-    if photocard:
+    file_to_delete = remove_file_from_s3(photocard.photocard_image)
+
+    if file_to_delete:
         db.session.delete(photocard)
         db.session.commit()
         return 'Photocard listing is successfully deleted'
     else:
+        print(file_to_delete)
         return {'error': 'Photocard listing does not exist'}, 404
 
 

@@ -45,6 +45,7 @@ function CreatePhotocardForm() {
 
             if (res) {
                 // const newPhotocard = await res.json();
+                // dispatch(getSinglePhotocardThunk(newPhotocard.id))
                 history.push(`/photocards/${res.id}`);
             }
         }
@@ -53,7 +54,11 @@ function CreatePhotocardForm() {
     return (
         <div className='create-photocard-form-container'>
             <div className='photocard-form-title'>Post your Photocard Listing</div>
-            <form onSubmit={handleSubmit}>
+            <form
+            className='photocard-upload-form'
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+            >
                 <div className='photocard-form-fields'>
                     <label>
                         Photocard name
