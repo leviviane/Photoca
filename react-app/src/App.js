@@ -7,7 +7,6 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import SinglePhotocardPage from "./components/SinglePhotocardPage";
-import CreatePhotocard from "./components/CreatePhotocard";
 import CreatePhotocardForm from "./components/CreatePhotocard";
 
 function App() {
@@ -28,9 +27,16 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/photocard/create" component={CreatePhotocardForm} />
-          <Route path="/photocard/:photocardId" component={SinglePhotocardPage} />
-          <Route path="/" component={LandingPage} />
+          <Route exact path="/photocard/create">
+            <CreatePhotocardForm />
+          </Route>
+          <Route path="/photocards/:photocardId">
+            <SinglePhotocardPage />
+          </Route>
+          <Route path="/">
+            <LandingPage />
+          </Route>
+          <Route>Page Not Found</Route>
         </Switch>
       )}
     </>

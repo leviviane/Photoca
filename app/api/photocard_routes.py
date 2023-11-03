@@ -10,13 +10,13 @@ photocard_routes = Blueprint('photocards', __name__)
 
 #Get all photocard listing
 @photocard_routes.route('/')
-def get_all_photocard_listing():
+def get_all_photocard():
     photocards = Photocard.query.all()
     return jsonify([photocard.to_dict() for photocard in photocards])
 
 #Get a single photocard listing
-@photocard_routes.route('/<int:id>')
-def get_single_photocard_listing(id):
+@photocard_routes.route('/<int:id>', methods=['GET'])
+def get_single_photocard(id):
     photocard = Photocard.query.get(id)
     if photocard:
         return photocard.to_dict()
@@ -24,11 +24,11 @@ def get_single_photocard_listing(id):
         return {'error': 'Photocard listing does not exist'}, 404
 
 #Create a photocard listing
-@photocard_routes.route('/create_listing', methods=['POST'])
+@photocard_routes.route('/create', methods=['POST'])
 @login_required
-def create_listing():
-    form = PhotocardForm
-    form['csrf_token'].data = request.cookie['csrf_token']
+def create_photocard():
+    form = PhotocardForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         photocard_image = form.data['photocard_image']
         photocard_image.filename = get_unique_filename(photocard_image.filename)
@@ -37,40 +37,41 @@ def create_listing():
         if 'url' not in upload:
             return {'errors': [upload]}
 
-        new_photocard_listing = Photocard(
+        new_photocard = Photocard(
             listing_name = form.data['listing_name'],
+            user_id = form.data['user_id'],
+            photocard_image = upload['url'],
             price = form.data['price'],
-            description = form.data['description'],
-            photocard_image = upload['url']
+            description = form.data['description']
         )
-        db.session.add(new_photocard_listing)
+        db.session.add(new_photocard)
         db.session.commit()
-        return new_photocard_listing.to_dict()
+        return new_photocard.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 #Update photocard listing
 @photocard_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def update_photocard_listing(id):
-    form = PhotocardForm
-    form['csrf_token'].data = request.cookie['csrf_token']
+def update_photocard(id):
+    form = PhotocardForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        photocard_listing = Photocard.query.get(id)
-        photocard_listing.photocard_name = form.data['photocard_name']
-        photocard_listing.price = form.data['price']
-        photocard_listing.description = form.data['description']
+        photocard = Photocard.query.get(id)
+        photocard.photocard_name = form.data['photocard_name']
+        photocard.price = form.data['price']
+        photocard.description = form.data['description']
 
         db.session.commit()
-        return photocard_listing.to_dict()
+        return photocard.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 #Delete photocard listing
 @photocard_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
-def delete_photocard_listing(id):
+def delete_photocard(id):
     photocard = Photocard.query.get(id)
     if photocard:
         db.session.delete(photocard)
@@ -109,7 +110,7 @@ def create_review(postId):
     data = request.get_json()
     data_text = data.get('review')
     form = ReviewForm(data={'text': data_text})
-    form['csrf_token'].data = request.cookie['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
         new_review = Review (

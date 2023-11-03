@@ -4,10 +4,10 @@ import { useHistory } from "react-router-dom";
 import { createPhotCardThunk } from "../../store/photocard";
 import "./CreatePhotocard.css";
 
-function CreatePhotocardForm({ reload }) {
+function CreatePhotocardForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const userId = useSelector((state) => state.session.user.id)
+    // const userId = useSelector((state) => state.session.user.id)
 
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
@@ -34,7 +34,6 @@ function CreatePhotocardForm({ reload }) {
         const foundErrors = checkErrors(name, price, description, image);
 
         const formData = new FormData();
-        formData.append('user_id', userId);
         formData.append('listing_name', name);
         formData.append('price', price);
         formData.append('description', description);
@@ -45,7 +44,6 @@ function CreatePhotocardForm({ reload }) {
             setImageUploading(true);
 
             if (res) {
-                reload();
                 history.push(`photocards/${res.id}`);
             }
         }

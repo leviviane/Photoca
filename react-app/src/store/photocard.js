@@ -49,7 +49,7 @@ export const getSinglePhotocardThunk = (photocardId) => async (dispatch) => {
 };
 
 export const createPhotCardThunk = (photocard) => async (dispatch) => {
-    const res = await fetch(`/api/photocards/create_photocard`, {
+    const res = await fetch(`/api/photocards/create`, {
         method: "POST",
         body: photocard,
     });

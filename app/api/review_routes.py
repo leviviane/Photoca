@@ -23,7 +23,7 @@ def update_review(reviewId):
     data_text = data.get('review')
 
     form = ReviewForm(data={'text': data_text})
-    form['csrf_token'].data = request.cookie['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         review.text = form.data['text']
 
