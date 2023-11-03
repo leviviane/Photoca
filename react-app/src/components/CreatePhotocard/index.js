@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createPhotCardThunk } from "../../store/photocard";
+import { createPhotCardThunk, getSinglePhotocardThunk } from "../../store/photocard";
 import "./CreatePhotocard.css";
 
 function CreatePhotocardForm() {
@@ -13,7 +13,7 @@ function CreatePhotocardForm() {
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
 
-    const [image, setImage] = useState(null);
+    const [img, setImg] = useState(null);
     const [imageUploading, setImageUploading] = useState(false)
     const [errors, setErrors] = useState({});
 
@@ -22,7 +22,7 @@ function CreatePhotocardForm() {
         if (!name) errors.name = "Photocard name is required";
         if(!price) errors.price = "Price is required"
         if (description.length < 10) errors.description = "Description needs 10 or more characters";
-        if (!image) errors.img = "Image is required"
+        if (!img) errors.img = "Image is required"
 
         setErrors(errors);
 
@@ -31,20 +31,21 @@ function CreatePhotocardForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const foundErrors = checkErrors(name, price, description, image);
+        const foundErrors = checkErrors(name, price, description, img);
 
         const formData = new FormData();
         formData.append('listing_name', name);
         formData.append('price', price);
         formData.append('description', description);
-        formData.append('photocard_image', image);
+        formData.append('photocard_image', img);
 
         if (Object.keys(foundErrors).length === 0) {
             const res = await dispatch(createPhotCardThunk(formData));
             setImageUploading(true);
 
             if (res) {
-                history.push(`photocards/${res.id}`);
+                // const newPhotocard = await res.json();
+                history.push(`/photocards/${res.id}`);
             }
         }
     }
@@ -88,13 +89,13 @@ function CreatePhotocardForm() {
                     <label>
                         Show Off your Photocard
                         <input
-                        type='url'
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
+                        type='file'
+                        // value={image}
+                        onChange={(e) => setImg(e.target.files[0])}
                         placeholder="preview Image url"
                         />
                     </label>
-                    {errors.image && <p className='errors'>{errors.image}</p>}
+                    {errors.img && <p className='errors'>{errors.img}</p>}
                 </div>
                 <div className="photocard-form-submit-button">
                     <button type="submit">Post photocard</button>

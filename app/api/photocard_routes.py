@@ -15,7 +15,7 @@ def get_all_photocard():
     return jsonify([photocard.to_dict() for photocard in photocards])
 
 #Get a single photocard listing
-@photocard_routes.route('/<int:id>', methods=['GET'])
+@photocard_routes.route('/<int:id>')
 def get_single_photocard(id):
     photocard = Photocard.query.get(id)
     if photocard:

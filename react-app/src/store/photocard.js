@@ -57,6 +57,7 @@ export const createPhotCardThunk = (photocard) => async (dispatch) => {
     if (res.ok) {
       const newPhotocard = await res.json();
       dispatch(createPhotocard(newPhotocard));
+      console.log('HELLOOOOOOO', newPhotocard)
       return newPhotocard;
     } else {
       const errors = await res.json();
