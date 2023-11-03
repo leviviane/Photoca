@@ -6,6 +6,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
+import SinglePhotocardPage from "./components/SinglePhotocardPage";
+import CreatePhotocard from "./components/CreatePhotocard";
+import CreatePhotocardForm from "./components/CreatePhotocard";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +28,8 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/photocard/create" component={CreatePhotocardForm} />
+          <Route path="/photocard/:photocardId" component={SinglePhotocardPage} />
           <Route path="/" component={LandingPage} />
         </Switch>
       )}

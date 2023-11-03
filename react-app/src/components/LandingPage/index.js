@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getAllPhotocardThunk } from "../../store/photocard";
+import CreatePhotocardForm from "../CreatePhotocard";
 import './LandingPage.css';
 
 function LandingPage() {
@@ -23,7 +24,6 @@ function LandingPage() {
 
     return (
         <div className="main-landing-page">
-            <h1 className="landing-page-title">Photoca</h1>
             <div className='photocard-list-nav'>
                 {photocardArr.map((photocard) => (
                     <NavLink className='photocard-nav-link' to={`/photocards/${photocard.id}`}>

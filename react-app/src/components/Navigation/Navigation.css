@@ -5,3 +5,18 @@
 .hidden {
   display: none;
 }
+
+#login-button-container {
+  cursor: pointer;
+}
+
+#logo-container > a {
+  text-decoration: none;
+}
+
+#create-photocard-container > a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
