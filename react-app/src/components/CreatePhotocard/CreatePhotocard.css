@@ -1,0 +1,10 @@
+.create-photocard-form-container {
+    width: 600px;
+    margin: auto;
+}
+
+.errors {
+    color: red;
+    margin-top: 5px;
+    font-size: 12px;
+}
