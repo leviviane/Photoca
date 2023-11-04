@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getAllPhotocardThunk } from "../../store/photocard";
+import UpdatePhotocardForm from "../UpdatePhotocard";
 import './LandingPage.css';
 
 function LandingPage() {
