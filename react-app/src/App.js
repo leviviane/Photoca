@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import SinglePhotocardPage from "./components/SinglePhotocardPage";
 import CreatePhotocardForm from "./components/CreatePhotocard";
+import UpdatePhotocardForm from "./components/UpdatePhotocard";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route exact path="/photocards/:photocardId/update">
+            <UpdatePhotocardForm />
           </Route>
           <Route exact path="/photocard/create">
             <CreatePhotocardForm />

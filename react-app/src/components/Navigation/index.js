@@ -24,6 +24,14 @@ function Navigation({ isLoaded }){
         )}
       </div>
 
+	  <div id='update-photocard-container'>
+		{sessionUser && (
+			<NavLink className='nav-link-2' to='/photocards/:photocardId/update'>
+				<span>Update photocard</span>
+			</NavLink>
+		)}
+	  </div>
+
       {isLoaded && (
         <div id='nav-container'>
           {/* <i className="fa-solid fa-bars"></i> */}
