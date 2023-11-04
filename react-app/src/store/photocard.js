@@ -1,7 +1,8 @@
 //ACTION TYPE
 const GET_ALL_PHOTOCARDS = 'photocards/GET_ALL_PHOTOCARDS';
 const GET_SINGLE_PHOTOCARD = 'photocards/GET_SINGLE_PHOTOCARD';
-const CREATE_PHOTOCARD = '/photocards/CREATE_PHOTOCARD'
+const CREATE_PHOTOCARD = '/photocards/CREATE_PHOTOCARD';
+const UPDATED_PHOTOCARD = '/photocards/UPDATED_PHOTOCARD';
 
 
 //ACTION CREATORS
@@ -17,6 +18,11 @@ const getSinglePhotocard = (photocard) => ({
 
 const createPhotocard = (photocard) => ({
     type: CREATE_PHOTOCARD,
+    photocard
+})
+
+const updatePhotocard = (photocard) => ({
+    type: UPDATED_PHOTOCARD,
     photocard
 })
 
@@ -57,7 +63,25 @@ export const createPhotCardThunk = (photocard) => async (dispatch) => {
     if (res.ok) {
       const newPhotocard = await res.json();
       dispatch(createPhotocard(newPhotocard));
+      console.log('HELLOOOOOOO', newPhotocard)
       return newPhotocard;
+    } else {
+      const errors = await res.json();
+      return errors;
+    }
+  };
+
+  export const updatePhotocardThunk = (photocard) => async (dispatch) => {
+    const res = await fetch(`/api/photocards/${photocard.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(photocard),
+    });
+
+    if (res.ok) {
+      const updatedPhotocard = await res.json();
+      dispatch(updatePhotocard(updatedPhotocard));
+      return updatedPhotocard;
     } else {
       const errors = await res.json();
       return errors;
@@ -85,6 +109,10 @@ const photocardReducer = (state = initialState, action) => {
         case CREATE_PHOTOCARD:
             newState = { ...state };
             newState.allPhotocards[action.photocard.id] = action.photocard;
+            return newState;
+        case UPDATED_PHOTOCARD:
+            newState = { ...state };
+            newState.singlePhotocard = action.photocard;
             return newState;
         default:
             return state;

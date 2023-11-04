@@ -24,7 +24,7 @@ def seed():
         undo_users()
     seed_users()
     seed_photocard()
-    seed_reviews
+    seed_reviews()
     # Add other seed functions here
 
 
