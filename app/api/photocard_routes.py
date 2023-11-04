@@ -14,14 +14,14 @@ def get_all_photocard():
     photocards = Photocard.query.all()
     return jsonify([photocard.to_dict() for photocard in photocards])
 
-#Get a single photocard listing
-@photocard_routes.route('/<int:id>')
-def get_single_photocard(id):
-    photocard = Photocard.query.get(id)
-    if photocard:
-        return photocard.to_dict()
-    else:
-        return {'error': 'Photocard listing does not exist'}, 404
+# #Get a single photocard listing
+# @photocard_routes.route('/<int:id>')
+# def get_single_photocard(id):
+#     photocard = Photocard.query.get(id)
+#     if photocard:
+#         return photocard.to_dict()
+#     else:
+#         return {'error': 'Photocard listing does not exist'}, 404
 
 #Create a photocard listing
 @photocard_routes.route('/create', methods=['GET', 'POST'])
@@ -46,9 +46,8 @@ def new_photocard():
 
         db.session.add(photocard)
         db.session.commit()
-        return photocard.to_dict()
-    else:
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        return {'resPost': photocard.to_dict()}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # @photocard_routes.route('/create', methods=['POST'])
 # @login_required

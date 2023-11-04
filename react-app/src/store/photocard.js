@@ -41,8 +41,8 @@ export const getAllPhotocardThunk = () => async (dispatch) => {
     }
 };
 
-export const getSinglePhotocardThunk = (photocardId) => async (dispatch) => {
-    const res = await fetch(`/api/photocards/${photocardId}`);
+export const getSinglePhotocardThunk = (id) => async (dispatch) => {
+    const res = await fetch(`/api/photocards/${id}`);
 
     if (res.ok) {
         const photocard = await res.json();
