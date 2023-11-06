@@ -23,23 +23,23 @@ def get_single_photocard(id):
     else:
         return {'error': 'Photocard listing does not exist'}, 404
 
+#Create a photocard listing
 @photocard_routes.route('/create', methods=['POST'])
 @login_required
-def create_photocard():
+def photocard_drama():
     form = PhotocardForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         photocard_image = form.data['photocard_image']
         photocard_image.filename = get_unique_filename(photocard_image.filename)
         upload = upload_file_to_s3(photocard_image)
-        print(upload)
 
         if 'url' not in upload:
             return {'errors': [upload]}
 
         new_photocard = Photocard(
-            listing_name = form.data['listing_name'],
             user_id = form.data['user_id'],
+            listing_name = form.data['listing_name'],
             photocard_image = upload['url'],
             price = form.data['price'],
             description = form.data['description']
@@ -49,6 +49,35 @@ def create_photocard():
         return new_photocard.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+# #Create a photocard listing
+# @photocard_routes.route('/create', methods=['POST'])
+# @login_required
+# def create_photocard():
+#     form = PhotocardForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     if form.validate_on_submit():
+#         photocard_image = form.data['photocard_image']
+#         photocard_image.filename = get_unique_filename(photocard_image.filename)
+#         upload = upload_file_to_s3(photocard_image)
+#         print(upload)
+
+#         if 'url' not in upload:
+#             return {'errors': [upload]}
+
+#         new_photocard = Photocard(
+#             listing_name = form.data['listing_name'],
+#             user_id = form.data['user_id'],
+#             photocard_image = upload['url'],
+#             price = form.data['price'],
+#             description = form.data['description']
+#         )
+#         db.session.add(new_photocard)
+#         db.session.commit()
+#         return new_photocard.to_dict()
+#     else:
+#         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 #Create a photocard listing
 # @photocard_routes.route('/create', methods=['POST'])

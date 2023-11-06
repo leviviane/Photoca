@@ -31,7 +31,7 @@ function App() {
           <Route exact path="/photocards/:photocardId/update">
             <UpdatePhotocardForm />
           </Route>
-          <Route exact path="/photocard/create">
+          <Route path="/photocards/create">
             <CreatePhotocardForm />
           </Route>
           <Route path="/photocards/:id">

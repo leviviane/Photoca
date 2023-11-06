@@ -63,14 +63,13 @@ export const getSinglePhotocardThunk = (id) => async (dispatch) => {
 export const createPhotoCardThunk = (photocard) => async (dispatch) => {
     const res = await fetch(`/api/photocards/create`, {
         method: "POST",
-        headers: { 'Content-type': 'application/json' },
-        body: JSON.stringify(photocard),
+        body: photocard,
     });
 
     if (res.ok) {
       const newPhotocard = await res.json();
       dispatch(createPhotocard(newPhotocard));
-      console.log('HELLOOOOOOO', newPhotocard)
+    //   console.log('HELLOOOOOOO', newPhotocard)
       return newPhotocard;
     } else {
       const errors = await res.json();
@@ -81,7 +80,7 @@ export const createPhotoCardThunk = (photocard) => async (dispatch) => {
   export const updatePhotocardThunk = (photocard) => async (dispatch) => {
     const res = await fetch(`/api/photocards/update/${photocard.id}/`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+    //   headers: { "Content-Type": "application/json" },
       body: JSON.stringify(photocard),
     });
 
