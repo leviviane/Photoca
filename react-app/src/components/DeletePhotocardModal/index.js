@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { deletePhotocardThunk } from "../../store/photocard";
 import "./DeletePhotocardModal.css";
 
-function DeletePhotocardModal( { photocardId, submitted }) {
+function DeletePhotocardModal( { photocardId }) {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [exist, setExist] = useState(true);
     const { closeModal } = useModal();
 
@@ -13,8 +15,9 @@ function DeletePhotocardModal( { photocardId, submitted }) {
         e.preventDefault();
         dispatch(deletePhotocardThunk(photocardId));
         closeModal();
-        submitted();
         setExist(false);
+
+        history.push('/photocards/current')
     }
 
     const cancelDelete = (e) => {

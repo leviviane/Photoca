@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { getSinglePhotocardThunk } from "../../store/photocard";
 import OpenModalButton from "../OpenModalButton";
 import DeletePhotocardModal from "../DeletePhotocardModal";
@@ -34,13 +34,16 @@ function SinglePhotocardPage() {
                 <p className='single-price-line'>{photocard.price}</p>
                 <p className='single-description-line'>{photocard.description}</p>
             </div>
-            <div className='single-page-delete'>
+            {/* <div className='single-page-delete'>
                 <OpenModalButton
                 buttonText="Delete"
                 modalComponent={
                 <DeletePhotocardModal photocardId={photocard.id} ownerId={photocard.ownerId} />
                 } />
-            </div>
+                <NavLink className='nav-link-2' to={`/photocards/${id}/update`}>
+				<span>Update photocard</span>
+                </NavLink>
+            </div> */}
         </div>
     )
 

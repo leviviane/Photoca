@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createPhotoCardThunk } from "../../store/photocard";
+import { createPhotoCardThunk, getSinglePhotocardThunk } from "../../store/photocard";
 import "./CreatePhotocard.css";
 
-function CreatePhotocardForm({ reload }) {
+function CreatePhotocardForm() {
   const dispatch = useDispatch();
   const history = useHistory();
   const userId = useSelector((state) => state.session.user.id);
@@ -50,7 +50,6 @@ function CreatePhotocardForm({ reload }) {
       setImageLoading(true);
 
       if (res) {
-        reload();
         history.push(`/photocards/${res.id}`);
       }
     }
