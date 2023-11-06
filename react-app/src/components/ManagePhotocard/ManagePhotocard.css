@@ -1,0 +1,16 @@
+.manage-photocard-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    gap: 20px;
+    justify-content: center;
+
+}
+
+/* .photocard-manage {
+    width: 130px;
+    height: 200px;
+    border-radius: 20px;
+    padding: 10px 10px 0 10px;
+    object-fit: cover;
+} */

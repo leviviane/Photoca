@@ -9,6 +9,7 @@ import LandingPage from "./components/LandingPage";
 import SinglePhotocardPage from "./components/SinglePhotocardPage";
 import CreatePhotocardForm from "./components/CreatePhotocard";
 import UpdatePhotocardForm from "./components/UpdatePhotocard";
+import ManagePhotocard from "./components/ManagePhotocard";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
           <Route path="/login" >
             <LoginFormPage />
           </Route>
@@ -34,11 +38,11 @@ function App() {
           <Route path="/photocards/create">
             <CreatePhotocardForm />
           </Route>
+          <Route path='/photocards/current'>
+            <ManagePhotocard />
+          </Route>
           <Route path="/photocards/:id">
             <SinglePhotocardPage />
-          </Route>
-          <Route path="/">
-            <LandingPage />
           </Route>
           <Route>Page Not Found</Route>
         </Switch>

@@ -15,13 +15,14 @@ function ManagePhotocard() {
     const userPhotocards = useSelector((state) => state.photocards.allPhotocards);
     const photocardObj = Object.values(userPhotocards);
     const { userId } = useParams();
+    console.log('HELLOOOOOO', userId)
 
     useEffect(() => {
         dispatch(getPhotocardsByUserThunk(userId));
     }, [dispatch, userId]);
 
     const newPhotocard = () => {
-        history.push('/photocards/new') //might need to match createpc
+        history.push('/photocards/create')
     };
 
     return (
@@ -69,20 +70,3 @@ function ManagePhotocard() {
 
 }
 export default ManagePhotocard;
-
-
-    // return (
-    //     <div className='manage-photocard-container'>
-    //         <h1 className='manage-title'>Your Photocards</h1>
-    //         <div className='manage-create-photocard'>
-    //             <button className='manage-create-button' onClick={newPhotocard}>
-    //                 Create a Photocard Listing
-    //             </button>
-    //             <div className='manage-photocard-list'>
-    //                 {photocardObj.length > 0 ? (
-
-    //                 )}
-    //             </div>
-    //         </div>
-    //     </div>
-    // )
