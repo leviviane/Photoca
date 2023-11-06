@@ -13,16 +13,24 @@ function ManagePhotocard() {
     const dispatch = useDispatch();
     const history = useHistory();
     const userPhotocards = useSelector((state) => state.photocards.allPhotocards);
-    const photocardObj = Object.values(userPhotocards);
-    const { userId } = useParams();
+    const photocardArr = Object.values(userPhotocards);
+    const user  = useSelector((state) => state.session.user)
+    console.log('HELLOOOOOO', user.id)
+
+    const userPhotocardArr = user
+    ? photocardArr.filter((photocard) => photocard.user_id === user.id)
+    : [];
 
     useEffect(() => {
-        dispatch(getPhotocardsByUserThunk(userId));
-    }, [dispatch, userId]);
+        dispatch(getAllPhotocardThunk());
+      }, [dispatch]);
+      // console.log('HELLLLO', userPhotocardArr)
 
     const newPhotocard = () => {
-        history.push('/photocards/new') //might need to match createpc
+        history.push('/photocards/create')
     };
+
+
 
     return (
         <div className="manage-photocards-container">
@@ -32,8 +40,8 @@ function ManagePhotocard() {
               Create a Photocard Listing
             </button>
             <div className="manage-photocard-list">
-              {photocardObj.length > 0 ? (
-                photocardObj.map((photocard) => (
+              {userPhotocardArr.length > 0 ? (
+                userPhotocardArr.map((photocard) => (
                   <div className="photocard-manage" key={photocard.id}>
                     <NavLink to={`/photocard/${photocard.id}`}>
                       <img
@@ -53,7 +61,7 @@ function ManagePhotocard() {
                                     <OpenModalButton
                                     buttonText="Delete"
                                     modalComponent={
-                                    <DeletePhotocardModal photocardId={photocard.id} userId={photocard.userId} />
+                                    <DeletePhotocardModal photocardId={photocard.id} userId={photocard.user_id} />
                                 } />
                                 </div>
                                 </div>
@@ -69,20 +77,3 @@ function ManagePhotocard() {
 
 }
 export default ManagePhotocard;
-
-
-    // return (
-    //     <div className='manage-photocard-container'>
-    //         <h1 className='manage-title'>Your Photocards</h1>
-    //         <div className='manage-create-photocard'>
-    //             <button className='manage-create-button' onClick={newPhotocard}>
-    //                 Create a Photocard Listing
-    //             </button>
-    //             <div className='manage-photocard-list'>
-    //                 {photocardObj.length > 0 ? (
-
-    //                 )}
-    //             </div>
-    //         </div>
-    //     </div>
-    // )
