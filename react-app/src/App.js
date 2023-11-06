@@ -31,10 +31,10 @@ function App() {
           <Route exact path="/photocards/:photocardId/update">
             <UpdatePhotocardForm />
           </Route>
-          <Route exact path="/photocard/create">
+          <Route path="/photocards/create">
             <CreatePhotocardForm />
           </Route>
-          <Route path="/photocards/:photocardId">
+          <Route path="/photocards/:id">
             <SinglePhotocardPage />
           </Route>
           <Route path="/">

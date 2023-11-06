@@ -14,7 +14,9 @@
   text-decoration: none;
 }
 
-#create-photocard-container > a {
+#create-photocard-container > a,
+#manage-your-photocard-container > a,
+#update-photocard-container > a {
   display: flex;
   align-items: center;
   text-decoration: none;

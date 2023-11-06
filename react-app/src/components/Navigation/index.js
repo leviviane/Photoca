@@ -18,15 +18,23 @@ function Navigation({ isLoaded }){
 
 		<div id='create-photocard-container'>
         {sessionUser && (
-          <NavLink className='nav-link' exact to='/photocard/create'>
+          <NavLink className='nav-link' exact to='/photocards/create'>
             <span>Post a Photocard Listing</span>
           </NavLink>
         )}
       </div>
 
+	  <div id='manage-your-photocard-container'>
+		{sessionUser && (
+			<NavLink className='nav-link' to='/photocards/current'>
+				<span>Manage Photocards</span>
+			</NavLink>
+		)}
+	  </div>
+
 	  <div id='update-photocard-container'>
 		{sessionUser && (
-			<NavLink className='nav-link-2' to='/photocards/:photocardId/update'>
+			<NavLink className='nav-link-2' to='/photocards/:id/update'>
 				<span>Update photocard</span>
 			</NavLink>
 		)}

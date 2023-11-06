@@ -1,8 +1,10 @@
 //ACTION TYPE
 const GET_ALL_PHOTOCARDS = 'photocards/GET_ALL_PHOTOCARDS';
 const GET_SINGLE_PHOTOCARD = 'photocards/GET_SINGLE_PHOTOCARD';
-const CREATE_PHOTOCARD = '/photocards/CREATE_PHOTOCARD';
-const UPDATED_PHOTOCARD = '/photocards/UPDATED_PHOTOCARD';
+const CREATE_PHOTOCARD = 'photocards/CREATE_PHOTOCARD';
+const UPDATED_PHOTOCARD = 'photocards/UPDATED_PHOTOCARD';
+const DELETE_PHOTOCARD = 'photocards/DELETE_PHOTOCARD';
+const GET_USER_PHOTOCARDS = 'photocards/GET_USER_PHOTOCARDS';
 
 
 //ACTION CREATORS
@@ -26,6 +28,18 @@ const updatePhotocard = (photocard) => ({
     photocard
 })
 
+const deletePhotocard = (photocardId) => ({
+    type: DELETE_PHOTOCARD,
+    photocardId
+})
+
+const getPhotocardsByUser = (photocard) => ({
+    type: GET_USER_PHOTOCARDS,
+    photocard
+})
+
+
+
 
 //THUNKS
 export const getAllPhotocardThunk = () => async (dispatch) => {
@@ -41,8 +55,8 @@ export const getAllPhotocardThunk = () => async (dispatch) => {
     }
 };
 
-export const getSinglePhotocardThunk = (photocardId) => async (dispatch) => {
-    const res = await fetch(`/api/photocards/${photocardId}`);
+export const getSinglePhotocardThunk = (id) => async (dispatch) => {
+    const res = await fetch(`/api/photocards/${id}`);
 
     if (res.ok) {
         const photocard = await res.json();
@@ -54,7 +68,7 @@ export const getSinglePhotocardThunk = (photocardId) => async (dispatch) => {
     }
 };
 
-export const createPhotCardThunk = (photocard) => async (dispatch) => {
+export const createPhotoCardThunk = (photocard) => async (dispatch) => {
     const res = await fetch(`/api/photocards/create`, {
         method: "POST",
         body: photocard,
@@ -63,7 +77,7 @@ export const createPhotCardThunk = (photocard) => async (dispatch) => {
     if (res.ok) {
       const newPhotocard = await res.json();
       dispatch(createPhotocard(newPhotocard));
-      console.log('HELLOOOOOOO', newPhotocard)
+    //   console.log('HELLOOOOOOO', newPhotocard)
       return newPhotocard;
     } else {
       const errors = await res.json();
@@ -72,9 +86,9 @@ export const createPhotCardThunk = (photocard) => async (dispatch) => {
   };
 
   export const updatePhotocardThunk = (photocard) => async (dispatch) => {
-    const res = await fetch(`/api/photocards/${photocard.id}`, {
+    const res = await fetch(`/api/photocards/update/${photocard.id}/`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+    //   headers: { "Content-Type": "application/json" },
       body: JSON.stringify(photocard),
     });
 
@@ -88,11 +102,34 @@ export const createPhotCardThunk = (photocard) => async (dispatch) => {
     }
   };
 
+  export const deletePhotocardThunk = (photocardId) => async (dispatch) => {
+    const res = await fetch (`/api/photocards/${photocardId}`, {
+        method: "DELETE",
+    });
+
+    if (res.ok) {
+        dispatch(deletePhotocard(photocardId));
+    } else {
+        const errors = await res.json();
+        return errors;
+    }
+  };
+
+  export const getPhotocardsByUserThunk = () => async (dispatch) => {
+    const res = await fetch('/api/photocards/current')
+    if (res.ok) {
+        const userPhotocards = await res.json();
+        dispatch(getPhotocardsByUser(userPhotocards))
+        return userPhotocards;
+    }
+  }
+
 
 //REDUCERS
 const initialState = {
     allPhotocards: {},
     singlePhotocard: {},
+    userPhotocards: []
 };
 
 const photocardReducer = (state = initialState, action) => {
@@ -114,9 +151,20 @@ const photocardReducer = (state = initialState, action) => {
             newState = { ...state };
             newState.singlePhotocard = action.photocard;
             return newState;
+        case DELETE_PHOTOCARD:
+            newState = { ...state };
+            delete newState.allPhotocards[action.photocardId];
+            delete newState.singlePhotocard;
+            return newState;
+        case GET_USER_PHOTOCARDS:
+            newState = { ...state, allPhotocards: {} };
+            action.photocard.Photocards.forEach(photocard => {
+                newState.allPhotocards[photocard.id] = photocard
+            })
+            return newState;
         default:
             return state;
     }
-}
+};
 
 export default photocardReducer;
