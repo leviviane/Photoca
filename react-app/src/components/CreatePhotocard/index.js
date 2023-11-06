@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createPhotCardThunk, getSinglePhotocardThunk } from "../../store/photocard";
+import { createPhotoCardThunk, getSinglePhotocardThunk } from "../../store/photocard";
 import "./CreatePhotocard.css";
 
 export const CreatePhotocardForm = () => {
@@ -50,7 +50,7 @@ export const CreatePhotocardForm = () => {
                 img
             };
 
-            const newPhotocard = await dispatch(createPhotCardThunk(payload));
+            const newPhotocard = await dispatch(createPhotoCardThunk(payload));
 
             if (newPhotocard) {
                 dispatch(getSinglePhotocardThunk(newPhotocard.id));

@@ -6,13 +6,13 @@ import "./SinglePhotocardPage.css";
 
 function SinglePhotocardPage() {
     const dispatch = useDispatch();
-    const { photocardId } = useParams();
+    const { id } = useParams();
     // const allPhotocardObj = useSelector((state) => state.photocards.allPhotocards)
     const photocard = useSelector((state) => state.photocards.singlePhotocard)
 
     useEffect(() => {
-        dispatch(getSinglePhotocardThunk(photocardId))
-    }, [dispatch, photocardId]);
+        dispatch(getSinglePhotocardThunk(id))
+    }, [dispatch, id]);
 
     if (!photocard || Object.keys(photocard).length === 0) {
         return null;
