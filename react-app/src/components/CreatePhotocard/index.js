@@ -4,9 +4,10 @@ import { useHistory } from "react-router-dom";
 import { createPhotoCardThunk, getSinglePhotocardThunk } from "../../store/photocard";
 import "./CreatePhotocard.css";
 
-export const CreatePhotocardForm = () => {
+function CreatePhotocardForm() {
     const dispatch = useDispatch();
     const history = useHistory();
+    const userId = useSelector((state) => state.session.user.id)
 
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
@@ -16,17 +17,12 @@ export const CreatePhotocardForm = () => {
     const [imageUploading, setImageUploading] = useState(false)
     const [errors, setErrors] = useState({});
 
-    function errorsChecked(
-        name,
-        price,
-        description,
-        img
-    ) {
+    function checkErrors(name, price, description, img) {
         const errors = {};
         if (!name) errors.name = "Photocard name is required";
-        if(!price) errors.price = "Price is required";
+        if(!price) errors.price = "Price is required"
         if (description.length < 10) errors.description = "Description needs 10 or more characters";
-        if (!img) errors.img = "Image is required";
+        if (!img) errors.img = "Image is required"
 
         setErrors(errors);
 
@@ -35,29 +31,26 @@ export const CreatePhotocardForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const errorsFound = errorsChecked(
-            name,
-            price,
-            description,
-            img
-        );
+        const foundErrors = checkErrors(name, price, description, img);
 
-        if (Object.keys(errorsFound).length === 0) {
-            const payload = {
-                name,
-                price,
-                description,
-                img
-            };
+        const formData = new FormData();
+        formData.append('listing_name', name);
+        formData.append('user_id', userId)
+        formData.append('price', price);
+        formData.append('description', description);
+        formData.append('photocard_image', img);
 
-            const newPhotocard = await dispatch(createPhotoCardThunk(payload));
+        if (Object.keys(foundErrors).length === 0) {
+            const res = await dispatch(createPhotoCardThunk(formData));
+            setImageUploading(true);
 
-            if (newPhotocard) {
-                dispatch(getSinglePhotocardThunk(newPhotocard.id));
-                history.push(`/photocards/${newPhotocard.id}`)
+            if (res) {
+                // const newPhotocard = await res.json();
+                // dispatch(getSinglePhotocardThunk(newPhotocard.id))
+                history.push(`/photocards/${res.id}`);
             }
         }
-    };
+    }
 
     return (
         <div className='create-photocard-form-container'>
@@ -116,25 +109,20 @@ export const CreatePhotocardForm = () => {
             </form>
         </div>
     )
-};
+}
 
 export default CreatePhotocardForm;
-
-
-
-
 
 
 // import React, { useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
-// import { createPhotCardThunk, getSinglePhotocardThunk } from "../../store/photocard";
+// import { createPhotoCardThunk, getSinglePhotocardThunk } from "../../store/photocard";
 // import "./CreatePhotocard.css";
 
-// function CreatePhotocardForm() {
+// export const CreatePhotocardForm = () => {
 //     const dispatch = useDispatch();
 //     const history = useHistory();
-//     const userId = useSelector((state) => state.session.user.id)
 
 //     const [name, setName] = useState("");
 //     const [price, setPrice] = useState("");
@@ -144,12 +132,17 @@ export default CreatePhotocardForm;
 //     const [imageUploading, setImageUploading] = useState(false)
 //     const [errors, setErrors] = useState({});
 
-//     function checkErrors(name, price, description, img) {
+//     function errorsChecked(
+//         name,
+//         price,
+//         description,
+//         img
+//     ) {
 //         const errors = {};
 //         if (!name) errors.name = "Photocard name is required";
-//         if(!price) errors.price = "Price is required"
+//         if(!price) errors.price = "Price is required";
 //         if (description.length < 10) errors.description = "Description needs 10 or more characters";
-//         if (!img) errors.img = "Image is required"
+//         if (!img) errors.img = "Image is required";
 
 //         setErrors(errors);
 
@@ -158,26 +151,29 @@ export default CreatePhotocardForm;
 
 //     const handleSubmit = async (e) => {
 //         e.preventDefault();
-//         const foundErrors = checkErrors(name, price, description, img);
+//         const errorsFound = errorsChecked(
+//             name,
+//             price,
+//             description,
+//             img
+//         );
 
-//         const formData = new FormData();
-//         formData.append('listing_name', name);
-//         formData.append('user_id', userId)
-//         formData.append('price', price);
-//         formData.append('description', description);
-//         formData.append('photocard_image', img);
+//         if (Object.keys(errorsFound).length === 0) {
+//             const payload = {
+//                 name,
+//                 price,
+//                 description,
+//                 img
+//             };
 
-//         if (Object.keys(foundErrors).length === 0) {
-//             const res = await dispatch(createPhotCardThunk(formData));
-//             setImageUploading(true);
+//             const newPhotocard = await dispatch(createPhotoCardThunk(payload));
 
-//             if (res) {
-//                 // const newPhotocard = await res.json();
-//                 // dispatch(getSinglePhotocardThunk(newPhotocard.id))
-//                 history.push(`/photocards/${res.id}`);
+//             if (newPhotocard) {
+//                 dispatch(getSinglePhotocardThunk(newPhotocard.id));
+//                 history.push(`/photocards/${newPhotocard.id}`)
 //             }
 //         }
-//     }
+//     };
 
 //     return (
 //         <div className='create-photocard-form-container'>
@@ -236,6 +232,6 @@ export default CreatePhotocardForm;
 //             </form>
 //         </div>
 //     )
-// }
+// };
 
 // export default CreatePhotocardForm;
