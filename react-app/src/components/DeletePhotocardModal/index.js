@@ -22,6 +22,10 @@ function DeletePhotocardModal( { photocardId, submitted }) {
         closeModal();
     };
 
+    const handleClose = () => {
+        closeModal();
+      };
+
     return (
         <>
         {exist && (

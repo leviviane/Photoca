@@ -24,6 +24,14 @@ function Navigation({ isLoaded }){
         )}
       </div>
 
+	  <div id='manage-your-photocard-container'>
+		{sessionUser && (
+			<NavLink className='nav-link' to='/photocards/current'>
+				<span>Manage Photocards</span>
+			</NavLink>
+		)}
+	  </div>
+
 	  <div id='update-photocard-container'>
 		{sessionUser && (
 			<NavLink className='nav-link-2' to='/photocards/:id/update'>

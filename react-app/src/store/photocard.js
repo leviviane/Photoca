@@ -4,6 +4,7 @@ const GET_SINGLE_PHOTOCARD = 'photocards/GET_SINGLE_PHOTOCARD';
 const CREATE_PHOTOCARD = 'photocards/CREATE_PHOTOCARD';
 const UPDATED_PHOTOCARD = 'photocards/UPDATED_PHOTOCARD';
 const DELETE_PHOTOCARD = 'photocards/DELETE_PHOTOCARD';
+const GET_USER_PHOTOCARDS = 'photocards/GET_USER_PHOTOCARDS';
 
 
 //ACTION CREATORS
@@ -31,6 +32,13 @@ const deletePhotocard = (photocardId) => ({
     type: DELETE_PHOTOCARD,
     photocardId
 })
+
+const getPhotocardsByUser = (photocard) => ({
+    type: GET_USER_PHOTOCARDS,
+    photocard
+})
+
+
 
 
 //THUNKS
@@ -105,6 +113,15 @@ export const createPhotoCardThunk = (photocard) => async (dispatch) => {
         const errors = await res.json();
         return errors;
     }
+  };
+
+  export const getPhotocardsByUserThunk = () => async (dispatch) => {
+    const res = await fetch('/api/photocards/current')
+    if (res.ok) {
+        const userPhotocards = await res.json();
+        dispatch(getPhotocardsByUser(userPhotocards))
+        return userPhotocards;
+    }
   }
 
 
@@ -112,6 +129,7 @@ export const createPhotoCardThunk = (photocard) => async (dispatch) => {
 const initialState = {
     allPhotocards: {},
     singlePhotocard: {},
+    userPhotocards: []
 };
 
 const photocardReducer = (state = initialState, action) => {
@@ -138,9 +156,15 @@ const photocardReducer = (state = initialState, action) => {
             delete newState.allPhotocards[action.photocardId];
             delete newState.singlePhotocard;
             return newState;
+        case GET_USER_PHOTOCARDS:
+            newState = { ...state, allPhotocards: {} };
+            action.photocard.Photocards.forEach(photocard => {
+                newState.allPhotocards[photocard.id] = photocard
+            })
+            return newState;
         default:
             return state;
     }
-}
+};
 
 export default photocardReducer;
