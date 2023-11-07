@@ -38,9 +38,6 @@ const getPhotocardsByUser = (photocard) => ({
     photocard
 })
 
-
-
-
 //THUNKS
 export const getAllPhotocardThunk = () => async (dispatch) => {
     const res = await fetch('/api/photocards');
@@ -86,9 +83,9 @@ export const createPhotoCardThunk = (photocard) => async (dispatch) => {
   };
 
   export const updatePhotocardThunk = (photocard) => async (dispatch) => {
-    const res = await fetch(`/api/photocards/update/${photocard.id}/`, {
+    const res = await fetch(`/api/photocards/${photocard.id}/update`, {
       method: "PUT",
-    //   headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(photocard),
     });
 
@@ -101,6 +98,23 @@ export const createPhotoCardThunk = (photocard) => async (dispatch) => {
       return errors;
     }
   };
+
+  //   export const updatePhotocardThunk = (photocard) => async (dispatch) => {
+//     const res = await fetch(`/api/photocards/update/${photocard.id}/`, {
+//       method: "PUT",
+//     //   headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(photocard),
+//     });
+
+//     if (res.ok) {
+//       const updatedPhotocard = await res.json();
+//       dispatch(updatePhotocard(updatedPhotocard));
+//       return updatedPhotocard;
+//     } else {
+//       const errors = await res.json();
+//       return errors;
+//     }
+//   };
 
   export const deletePhotocardThunk = (photocardId) => async (dispatch) => {
     const res = await fetch (`/api/photocards/${photocardId}`, {
@@ -155,6 +169,7 @@ const photocardReducer = (state = initialState, action) => {
             newState = { ...state };
             delete newState.allPhotocards[action.photocardId];
             delete newState.singlePhotocard;
+            // newState.singlePhotocard = null;
             return newState;
         case GET_USER_PHOTOCARDS:
             newState = { ...state, allPhotocards: {} };

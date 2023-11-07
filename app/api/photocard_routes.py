@@ -82,7 +82,7 @@ def photocard_drama():
 
 
 #Update photocard listing
-@photocard_routes.route('/update/<int:id>', methods=['PUT'])
+@photocard_routes.route('/<int:id>/update', methods=['PUT'])
 @login_required
 def update_photocard(id):
     form = PhotocardForm()
@@ -90,7 +90,7 @@ def update_photocard(id):
 
     if form.validate_on_submit():
         photocard = Photocard.query.get(id)
-        photocard.photocard_name = form.data['photocard_name']
+        photocard.listing_name = form.data['listing_name']
         photocard.price = form.data['price']
         photocard.description = form.data['description']
 

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, NavLink } from "react-router-dom";
-import LoginFormModal from "../LoginFormModal";
 import OpenModalButton from "../OpenModalButton";
 import UpdatePhotocardForm from "../UpdatePhotocard";
 import DeletePhotocardModal from "../DeletePhotocardModal";
@@ -15,7 +14,7 @@ function ManagePhotocard() {
     const userPhotocards = useSelector((state) => state.photocards.allPhotocards);
     const photocardArr = Object.values(userPhotocards);
     const user  = useSelector((state) => state.session.user)
-    console.log('HELLOOOOOO', user.id)
+    // console.log('HELLOOOOOO', user.id)
 
     const userPhotocardArr = user
     ? photocardArr.filter((photocard) => photocard.user_id === user.id)
@@ -30,8 +29,6 @@ function ManagePhotocard() {
         history.push('/photocards/create')
     };
 
-
-
     return (
         <div className="manage-photocards-container">
           <h1 className='manage-title'>Your Photocards</h1>
@@ -43,7 +40,7 @@ function ManagePhotocard() {
               {userPhotocardArr.length > 0 ? (
                 userPhotocardArr.map((photocard) => (
                   <div className="photocard-manage" key={photocard.id}>
-                    <NavLink to={`/photocard/${photocard.id}`}>
+                    <NavLink to={`/photocards/${photocard.id}`}>
                       <img
                         src={photocard.photocard_image}
                         className="image-box"
@@ -75,5 +72,6 @@ function ManagePhotocard() {
         </div>
       );
 
-}
+};
+
 export default ManagePhotocard;

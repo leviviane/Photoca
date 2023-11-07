@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getSinglePhotocardThunk } from "../../store/photocard";
-import OpenModalButton from "../OpenModalButton";
-import DeletePhotocardModal from "../DeletePhotocardModal";
 import "./SinglePhotocardPage.css";
 
 function SinglePhotocardPage() {
