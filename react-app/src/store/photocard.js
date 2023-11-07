@@ -38,9 +38,6 @@ const getPhotocardsByUser = (photocard) => ({
     photocard
 })
 
-
-
-
 //THUNKS
 export const getAllPhotocardThunk = () => async (dispatch) => {
     const res = await fetch('/api/photocards');
@@ -155,6 +152,7 @@ const photocardReducer = (state = initialState, action) => {
             newState = { ...state };
             delete newState.allPhotocards[action.photocardId];
             delete newState.singlePhotocard;
+            // newState.singlePhotocard = null;
             return newState;
         case GET_USER_PHOTOCARDS:
             newState = { ...state, allPhotocards: {} };

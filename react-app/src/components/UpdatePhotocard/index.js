@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { getSinglePhotocardThunk, updatePhotocardThunk } from "../../store/photocard";
+import { useModal } from "../../context/Modal";
 import "./UpdatePhotocard.css";
 
-function UpdatePhotocardForm ({ photocardId, submitted }) {
+function UpdatePhotocardForm ({ submitted }) {
     const dispatch = useDispatch();
     const photocard = useSelector((state) => state.photocards.singlePhotocard);
     const userId = useSelector((state) => state.session.user.id);
+    const { photocardId } = useParams();
+    const { closeModal } = useModal();
 
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
@@ -58,9 +61,14 @@ function UpdatePhotocardForm ({ photocardId, submitted }) {
 
           if (res) {
             submitted();
+            dispatch(getSinglePhotocardThunk(photocardId)).then(closeModal());
           }
         }
       };
+
+    //   const handleClose = () => {
+    //     closeModal();
+    //   }
 
 
     // if (Object.keys(foundErrors).length === 0) {
