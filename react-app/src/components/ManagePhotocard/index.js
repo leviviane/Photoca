@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, NavLink } from "react-router-dom";
-import LoginFormModal from "../LoginFormModal";
 import OpenModalButton from "../OpenModalButton";
 import UpdatePhotocardForm from "../UpdatePhotocard";
 import DeletePhotocardModal from "../DeletePhotocardModal";
