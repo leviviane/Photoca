@@ -4,12 +4,21 @@ from sqlalchemy.sql import text
 
 def seed_reviews():
     review1 = Review (
-        user_id = 1,
-        review_id = 1,
+        user_id = 2,
+        # review_id = 1,
+        photocard_id = 1,
         text = 'Smooth transaction',
         created_at = date.today()
     )
     db.session.add(review1)
+
+    review2 = Review (
+    user_id = 2,
+    photocard_id = 1,
+    text = 'LOVE MY CARD',
+    created_at = date.today()
+    )
+    db.session.add(review2)
 
     db.session.commit()
 

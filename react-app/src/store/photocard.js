@@ -168,7 +168,7 @@ const photocardReducer = (state = initialState, action) => {
         case DELETE_PHOTOCARD:
             newState = { ...state };
             delete newState.allPhotocards[action.photocardId];
-            delete newState.singlePhotocard;
+            // delete newState.singlePhotocard;
             // newState.singlePhotocard = null;
             return newState;
         case GET_USER_PHOTOCARDS:
