@@ -49,7 +49,7 @@ function PhotocardReview () {
       : [];
 
       const handleSubmit = () => {
-        setKey((prevKey) => prevKey +1);
+        setKey((prevKey) => prevKey + 1);
       };
 
       return isLoaded && (
