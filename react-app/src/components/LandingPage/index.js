@@ -19,8 +19,6 @@ function LandingPage() {
         return null;
     }
 
-
-
     return (
         <div className="main-landing-page">
             <div className='photocard-list-nav'>
