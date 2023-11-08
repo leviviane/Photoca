@@ -2,7 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getSinglePhotocardThunk } from "../../store/photocard";
+import CreateReview from "../CreateReview";
+// import PhotocardReview from "../PhotocardReview";
 import "./SinglePhotocardPage.css";
+import PhotocardReview from "../PhotocardReview";
 
 function SinglePhotocardPage() {
     const dispatch = useDispatch();
@@ -32,6 +35,8 @@ function SinglePhotocardPage() {
                 <p className='single-price-line'>{photocard.price}</p>
                 <p className='single-description-line'>{photocard.description}</p>
             </div>
+            <PhotocardReview />
+            {/* <CreateReview /> */}
             {/* <div className='single-page-delete'>
                 <OpenModalButton
                 buttonText="Delete"

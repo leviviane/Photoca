@@ -27,7 +27,7 @@ const deleteReview = (reviewId) => ({
 
 
 //THUNKS
-export const GetAllReviewsThunk = (photocardId) => async (dispatch) => {
+export const getAllReviewsThunk = (photocardId) => async (dispatch) => {
     const res = await fetch(`/api/reviews/${photocardId}`);
 
     if (res.ok) {
@@ -70,7 +70,7 @@ export const createReviewThunk = (review, photocardId) => async (dispatch) => {
 //     }
 // };
 
-export const deleteReviewThink = (reviewId) => async (dispatch) => {
+export const deleteReviewThunk = (reviewId) => async (dispatch) => {
     const res = await fetch(`/api/reviews/${reviewId}`, {
         method: "DELETE",
     });
@@ -83,28 +83,38 @@ export const deleteReviewThink = (reviewId) => async (dispatch) => {
     }
 }
 
-//REDUCERS
-const initialState = {
-    allReviews: {}
-  };
 
-  const reviewReducer = (state = initialState, action) => {
-    let newState = {};
+//Reducer
+const initialState = {
+    photocard: {},
+    user: {}
+}
+const reviewReducer = (state = initialState, action) => {
+    let newState;
     switch (action.type) {
-        case GET_ALL_REVIEWS:
-            newState = { ...state, allReviews: {} };
-            action.review.forEach((review) => (newState.allReviews[review.id] = review));
-            return newState;
-        case CREATE_REVIEW:
-            newState = { ...state, allReviews: { ...state.allReviews }};
-            newState.allReviews[action.review.id] = action.review;
-            return newState;
-        case DELETE_REVIEW:
-            newState = { ...state, allRevoews: { ...state.allReviews }};
-            delete newState.allReviews[action.id];
-            return newState;
-        default:
-            return state;
+      case GET_ALL_REVIEWS:
+        newState = { ...state, photocard: {} };
+        action.reviews.forEach((review) => {
+          newState.photocard[review.id] = review;
+        });
+        return newState;
+      case CREATE_REVIEW:
+        newState = {
+          ...state,
+          photocard: { ...state.photocard },
+          user: { ...state.user },
+        };
+        newState.photocard[action.review.id] = action.review;
+        return newState;
+      case DELETE_REVIEW:
+        const reviewsObj = { ...state.photocard };
+        delete reviewsObj[action.reviewId];
+        return {
+          ...state,
+          photocard: { ...reviewsObj },
+        };
+      default:
+        return state;
     }
 };
 

@@ -11,9 +11,11 @@ import "./ManagePhotocard.css"
 function ManagePhotocard() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const userPhotocards = useSelector((state) => state.photocards.allPhotocards);
-    const photocardArr = Object.values(userPhotocards);
+    const photocards = useSelector((state) => state.photocards.allPhotocards);
+    const photocardArr = Object.values(photocards);
     const user  = useSelector((state) => state.session.user)
+
+    const [submitted, setSubmitted] = useState(false)
     // console.log('HELLOOOOOO', user.id)
 
     const userPhotocardArr = user
@@ -24,6 +26,17 @@ function ManagePhotocard() {
         dispatch(getAllPhotocardThunk());
       }, [dispatch]);
       // console.log('HELLLLO', userPhotocardArr)
+
+      if (!photocardArr) {
+        dispatch(getAllPhotocardThunk())
+        return null;
+      }
+
+      if (submitted) {
+        console.log('HIIIIIII')
+        dispatch(getAllPhotocardThunk());
+        setSubmitted(false)
+      }
 
     const newPhotocard = () => {
         history.push('/photocards/create')
@@ -58,7 +71,7 @@ function ManagePhotocard() {
                                     <OpenModalButton
                                     buttonText="Delete"
                                     modalComponent={
-                                    <DeletePhotocardModal photocardId={photocard.id} userId={photocard.user_id} />
+                                    <DeletePhotocardModal submitted={() => setSubmitted(true)} photocard={photocard} userId={photocard.user_id} />
                                 } />
                                 </div>
                                 </div>

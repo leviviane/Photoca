@@ -1,23 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { deletePhotocardThunk } from "../../store/photocard";
+import { deletePhotocardThunk, getAllPhotocardThunk } from "../../store/photocard";
 import "./DeletePhotocardModal.css";
 
-function DeletePhotocardModal( { photocardId }) {
+function DeletePhotocardModal( { photocard, submitted }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const [exist, setExist] = useState(true);
     const { closeModal } = useModal();
 
-    const confirmDelete = (e) => {
+    useEffect(() => {
+        if (!exist) {
+            dispatch((getAllPhotocardThunk()))
+        }
+    }, [dispatch, exist])
+
+    const confirmDelete = async (e) => {
         e.preventDefault();
-        dispatch(deletePhotocardThunk(photocardId));
+        await dispatch(deletePhotocardThunk(photocard.id));
+        submitted();
         closeModal();
         setExist(false);
 
-        history.push('/photocards/current')
+        // history.push('/photocards/current')
     }
 
     const cancelDelete = (e) => {
@@ -34,14 +41,14 @@ function DeletePhotocardModal( { photocardId }) {
         {exist && (
             <>
             <div className='delete-photocard-modal'>
-                <button className='close-modal' onClick={handleClose}>
+                <button className='close-photocard-modal' onClick={handleClose}>
                     X
                 </button>
-                <h2 className='confirm-delete-title'>Confirm Delete</h2>
-                <div className='ask-delete-box'>
+                <h2 className='confirm-photocard-delete-title'>Confirm Delete</h2>
+                <div className='photocard-ask-delete-box'>
                     Are you sure you want to delete this photocard listing?
                 </div>
-                <div className='delete-buttons'>
+                <div className='photocard-delete-buttons'>
                     <button className='yes-delete-photocard' onClick={confirmDelete}>
                         Yes (Delete Photocard)
                     </button>
