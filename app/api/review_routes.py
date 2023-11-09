@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
-from app.models import db, Review, Photocard
+from app.models import db, Review, Photocard, User
 from app.forms.review_form import ReviewForm
 from .auth_routes import validation_errors_to_error_messages
 from .aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
@@ -26,11 +26,11 @@ def get_reviews(photocardId):
 
 
 #Post review for photocard listing
-@review_routes.route('/<int:reviewId>', methods=['POST'])
+@review_routes.route('/<int:photocardId>', methods=['POST'])
 @login_required
-def create_review(reviewId):
+def create_review(photocardId):
     user = User.query.get(current_user.id)
-    photocard = Photocard.query.get(reviewId)
+    photocard = Photocard.query.get(photocardId)
     if not photocard:
         return {'errors': 'Review does not exist'}, 404
 
@@ -41,7 +41,7 @@ def create_review(reviewId):
 
     if form.validate_on_submit():
         new_review = Review (
-            post_id = reviewId,
+            photocard_id = photocardId,
             user_id = user.id,
             text = form.data['text']
         )

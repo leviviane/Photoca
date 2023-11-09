@@ -25,7 +25,7 @@ function DeletePhotocardModal( { photocard, submitted }) {
         setExist(false);
 
         // history.push('/photocards/current')
-    }
+    };
 
     const cancelDelete = (e) => {
         e.preventDefault();

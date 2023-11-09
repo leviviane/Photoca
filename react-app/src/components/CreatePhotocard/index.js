@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createPhotoCardThunk } from "../../store/photocard";
+import { createPhotoCardThunk, getSinglePhotocardThunk } from "../../store/photocard";
 import "./CreatePhotocard.css";
 
 function CreatePhotocardForm() {
