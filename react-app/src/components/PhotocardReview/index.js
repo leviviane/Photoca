@@ -5,6 +5,8 @@ import { getAllReviewsThunk } from "../../store/review";
 import OpenModalButton from "../OpenModalButton";
 import DeleteReviewModal from "../DeleteReviewModal";
 import CreateReview from "../CreateReview";
+import UpdatePhotocard from "../UpdatePhotocard";
+import UpdateReview from "../UpdateReview";
 
 function PhotocardReview () {
     const dispatch = useDispatch();
@@ -56,17 +58,16 @@ function PhotocardReview () {
         <div key={key}>
           <div>
             {console.log('HELLLOOOOOO', sortedReviews)}
-            {!sortedReviews.length ? (
+            {/* {!sortedReviews.length ? ( */}
               <div>
                 <div className="photocard-review-container">
                   {photocard.review > 1 ? 'Reviews' : 'Review'}
                   <div className="post-button">
-                    {user && !sortedReviews.find((review) => review.userId === user.id) && photocard.UserId !== user?.id && (
+                    {/* {user && !sortedReviews.find((review) => review.userId === user.id) && photocard.UserId !== user?.id && ( */}
                       <OpenModalButton
                         buttonText="Post Your Review"
                         modalComponent={<CreateReview photocard={photocard} user={user} onReviewSubmitted={handleSubmit} />}
                       />
-                    )}
                   </div>
                 </div>
                 {sortedReviews.map((review) => (
@@ -74,14 +75,23 @@ function PhotocardReview () {
                     <div className="review-container">
                       <h3 className="user-name">{review?.User?.firstName}</h3>
                       <h4 className="review-date">{createDate(review.createdAt)}</h4>
-                      <p className="review-description">{review.review}</p>
-
-                      <div className="delete-button">
-                        {review.userId === user?.id && (
+                      <p className="review-description">{review.text}</p>
+                      <div className='update-review-button'>
+                        {review.user_id === user && (
+                          <OpenModalButton
+                          buttonText='Update'
+                          modalComponent={
+                            <UpdateReview review={review} userId={photocard.id} photocardId={photocard.id} />
+                          }
+                          />
+                        )}
+                      </div>
+                      <div className="delete-review-button">
+                        {review.user_id === user && (
                           <OpenModalButton
                             buttonText="Delete"
                             modalComponent={
-                              <DeleteReviewModal reviewId={review.id} userId={photocard.id} />
+                              <DeleteReviewModal review={review} userId={photocard.id} />
                             }
                           />
                         )}
@@ -90,12 +100,10 @@ function PhotocardReview () {
                   </div>
                 ))}
               </div>
-            ) : (
+
               <div>
                 <div className="new-container">
-                  New
                   <div className="post-review-button">
-
                     {user && !sortedReviews.find((review) => review.userId === user.id) && photocard.userId !== user?.id && (
                       <OpenModalButton
                         buttonText="Post Your Review"
@@ -110,7 +118,6 @@ function PhotocardReview () {
                   </h3>
                 )}
               </div>
-            )}
           </div>
         </div>
       );

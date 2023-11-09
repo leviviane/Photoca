@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 import { getSinglePhotocardThunk } from "../../store/photocard";
 import { createReviewThunk } from "../../store/review";
 import "./CreateReview.css";
 
-function CreateReview() {
+function CreateReview( {photocard} ) {
     const dispatch = useDispatch();
     const history = useHistory();
+    const { id } = useParams();
     const userId = useSelector((state) => state.session.user.id)
     // const photocardId = useSelector((state) => state.singlePhotocard.photocard.id)
     const { closeModal } = useModal();
@@ -30,17 +32,25 @@ function CreateReview() {
             text
         );
 
-        const formData = new FormData();
-        // formData.append("photocard_id", photocardId);
-        formData.append("user_id", userId);
-        formData.append('text', text)
+        const newReview = {
+            photocard_id: photocard.id,
+            user_id: userId,
+            text
+         }
+        // const formData = new FormData();
+        // // formData.append("photocard_id", photocardId);
+        // formData.append("user_id", userId);
+        // formData.append('text', text)
 
         if (Object.keys(errorsFound).length === 0) {
-            const res = await dispatch(createReviewThunk(formData));
+            // console.log('HELOOOO', photocard.id)
+            const res = await dispatch(createReviewThunk(newReview, photocard.id));
 
-            if (res) {
-                history.push(`/reviews/${res.id}`)
-            }
+            closeModal();
+
+            // if (res) {
+            //     history.push(`/photocards/${res.id}`)
+            // }
         }
     }
 
