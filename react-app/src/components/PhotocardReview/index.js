@@ -73,7 +73,7 @@ function PhotocardReview () {
                 {sortedReviews.map((review) => (
                   <div key={review.id}>
                     <div className="review-container">
-                      <h3 className="user-name">{review?.User?.firstName}</h3>
+                      <h3 className="user-name">{review?.User?.first_name}</h3>
                       <h4 className="review-date">{createDate(review.createdAt)}</h4>
                       <p className="review-description">{review.text}</p>
                       <div className='update-review-button'>
