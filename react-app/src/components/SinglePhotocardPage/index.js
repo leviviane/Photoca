@@ -4,9 +4,8 @@ import { useParams } from "react-router-dom";
 import { getSinglePhotocardThunk } from "../../store/photocard";
 import CreateReview from "../CreateReview";
 // import PhotocardReview from "../PhotocardReview";
-import "./SinglePhotocardPage.css";
 import PhotocardReview from "../PhotocardReview";
-
+import './SinglePhotocardPage.css';
 function SinglePhotocardPage() {
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -28,7 +27,7 @@ function SinglePhotocardPage() {
             </div>
             <div className='single-page-img-container'>
                 <div className='single-img-line'>
-                    <img src={photocard.photocard_image} alt={photocard.listing_name} />
+                    <img className='photocard-img-line' src={photocard.photocard_image} alt={photocard.listing_name} />
                 </div>
             </div>
             <div className='price-description-container'>

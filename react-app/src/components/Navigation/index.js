@@ -16,13 +16,13 @@ function Navigation({ isLoaded }){
 		  </div>
 		</NavLink>
 
-	  <div id='manage-your-photocard-container'>
+	  {/* <div id='manage-your-photocard-container'>
 		{sessionUser && (
 			<NavLink className='nav-link' to='/photocards/current'>
 				<span>Manage Photocards</span>
 			</NavLink>
 		)}
-	  </div>
+	  </div> */}
       {isLoaded && (
         <div id='nav-container'>
           {/* <i className="fa-solid fa-bars"></i> */}

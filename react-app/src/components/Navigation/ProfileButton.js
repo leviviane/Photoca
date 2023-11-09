@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom"
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import ManagePhotocard from "../ManagePhotocard";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -45,12 +47,16 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
+            <li>Hello {user.first_name}</li>
             <li>{user.email}</li>
+            <li className='manage-photocard-profile'><NavLink className='manage-line' to='/photocards/current'>
+              Manage Photocards
+            </NavLink></li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
           </>
+
         ) : (
           <>
             <OpenModalButton
