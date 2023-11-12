@@ -18,3 +18,7 @@
     cursor: pointer;
     color: #777;
   }
+
+  .photocard-delete-button {
+     cursor: pointer;
+  }
