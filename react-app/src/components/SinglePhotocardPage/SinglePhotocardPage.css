@@ -9,3 +9,37 @@
 .main-single-card-page {
   font-family: sans-serif;
 }
+
+.main-single-card-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.photocard-name-line {
+  margin-left: 45px;
+  text-decoration: underline;
+}
+
+
+.price-card-container {
+  display: flex;
+  align-items: center;
+}
+
+.price-card {
+  margin-right: 5px;
+}
+
+.description-card-container {
+  display: flex;
+  align-items: center;
+}
+
+.price-card {
+  margin-right: 5px;
+}
+ .price-card {
+  font-weight: bold;
+ }
+

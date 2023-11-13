@@ -12,7 +12,7 @@ function PhotocardReview () {
     const dispatch = useDispatch();
     const { id } = useParams();
     const photocard = useSelector((state) => state.photocards.singlePhotocard);
-    const user = useSelector((state) => state.session.user.id);
+    // const user = useSelector((state) => state.session.user.id);
     const sessionUser = useSelector((state) => state.session.user);
     const reviews = useSelector((state) => state.reviews.photocard);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -62,7 +62,7 @@ function PhotocardReview () {
             {/* {!sortedReviews.length ? ( */}
               <div>
                 <div className="photocard-review-container">
-                  {photocard.review > 1 ? 'Reviews' : 'Review'}
+                  {photocard.review > 1 ? 'Reviews' : 'Reviews'}
                   {sessionUser && !sortedReviews.find((review) => review.user_id === sessionUser) &&
                   photocard.user_id !== sessionUser?.id && (
                     <div className="post-button">
@@ -70,7 +70,7 @@ function PhotocardReview () {
 
                       <OpenModalButton
                         buttonText="Post Your Review"
-                        modalComponent={<CreateReview photocard={photocard} user={user} onReviewSubmitted={handleSubmit} />}
+                        modalComponent={<CreateReview photocard={photocard} user={sessionUser} onReviewSubmitted={handleSubmit} />}
                         />
                   </div>
                         )}
@@ -79,10 +79,10 @@ function PhotocardReview () {
                   <div key={review.id}>
                     <div className="review-container">
                       <h3 className="user-name">{review?.User?.first_name}</h3>
-                      <h4 className="review-date">{createDate(review.createdAt)}</h4>
+                      <h5 className="review-date">{createDate(review.createdAt)}</h5>
                       <p className="review-description">{review.text}</p>
                       <div className='update-review-button'>
-                        {review.user_id === user && (
+                        {review.user_id === sessionUser.id && (
                           <OpenModalButton
                           buttonText='Update'
                           modalComponent={
@@ -92,7 +92,7 @@ function PhotocardReview () {
                         )}
                       </div>
                       <div className="delete-review-button">
-                        {review.user_id === user && (
+                        {review.user_id === sessionUser.id && (
                           <OpenModalButton
                             buttonText="Delete"
                             modalComponent={
