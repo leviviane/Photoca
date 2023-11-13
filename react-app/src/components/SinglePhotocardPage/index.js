@@ -6,11 +6,14 @@ import CreateReview from "../CreateReview";
 // import PhotocardReview from "../PhotocardReview";
 import PhotocardReview from "../PhotocardReview";
 import './SinglePhotocardPage.css';
+
+
 function SinglePhotocardPage() {
     const dispatch = useDispatch();
     const { id } = useParams();
     // const allPhotocardObj = useSelector((state) => state.photocards.allPhotocards)
     const photocard = useSelector((state) => state.photocards.singlePhotocard)
+    // const sessionUser = useSelector((state) => state.photocards.userId)
 
     useEffect(() => {
         dispatch(getSinglePhotocardThunk(id))
@@ -19,6 +22,10 @@ function SinglePhotocardPage() {
     if (!photocard || Object.keys(photocard).length === 0) {
         return null;
     }
+
+    // if (!sessionUser) {
+    //     return null;
+    // }
 
     return (
         <div className='main-single-card-page'>
@@ -31,8 +38,8 @@ function SinglePhotocardPage() {
                 </div>
             </div>
             <div className='price-description-container'>
-                <p className='single-price-line'>{photocard.price}</p>
-                <p className='single-description-line'>{photocard.description}</p>
+                <p className='single-price-line'>Price: ${photocard.price}</p>
+                <p className='single-description-line'>Card Details: {photocard.description}</p>
             </div>
             <PhotocardReview />
             {/* <CreateReview /> */}

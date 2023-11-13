@@ -28,7 +28,7 @@ function LandingPage() {
                             <img className='photocard-img' src={photocard.photocard_image} alt={photocard.listing_name} />
                             <div className='photocard-info-box'>
                                 <p className='photocard-name-box'>{photocard.listing_name}</p>
-                                <p className='photocard-price-box'>{photocard.price}</p>
+                                {/* <p className='photocard-price-box'>${photocard.price}</p> */}
                                 {/* <p className='photocard-description-box'>{photocard.description}</p> */}
                             </div>
                         </div>

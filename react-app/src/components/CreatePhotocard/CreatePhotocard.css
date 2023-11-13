@@ -1,10 +1,22 @@
 .create-photocard-form-container {
     width: 600px;
     margin: auto;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: center;
 }
 
 .create-photocard-errors {
     color: red;
     margin-top: 5px;
     font-size: 12px;
+}
+
+.errors {
+    color: red;
+}
+
+.create-background {
+    align-items: center;
+    justify-content: center;
 }

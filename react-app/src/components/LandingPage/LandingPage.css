@@ -1,7 +1,7 @@
 
 .photocard-img {
-  width: 130px;
-  height: 200px;
+  width: 150px;
+  height: 250px;
   border-radius: 20px;
   padding: 10px 10px 0 10px;
   object-fit: cover;
@@ -13,4 +13,16 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   justify-content: center;
+}
+
+.main-landing-page {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 12px;
+  background-color: lightgray;
+}
+
+.photocard-nav-link {
+  text-decoration: none;
+  color: black;
 }

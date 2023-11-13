@@ -6,6 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import ManagePhotocard from "../ManagePhotocard";
+import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -40,13 +41,13 @@ function ProfileButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   return (
-    <>
+    <div className='login-container'>
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
-          <>
+          <div className='greeting-box'>
             <li>Hello {user.first_name}</li>
             <li>{user.email}</li>
             <li className='manage-photocard-profile'><NavLink className='manage-line' to='/photocards/current'>
@@ -55,25 +56,25 @@ function ProfileButton({ user }) {
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
-          </>
+          </div>
 
         ) : (
-          <>
-            <OpenModalButton
+          <div className='login-signup-container'>
+            <OpenModalButton className='login-button'
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
 
-            <OpenModalButton
+            <OpenModalButton className='signup-button'
               buttonText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
             />
-          </>
+          </div>
         )}
       </ul>
-    </>
+    </div>
   );
 }
 
