@@ -12,6 +12,7 @@ function Navigation({ isLoaded }){
 		<NavLink exact to='/'>
 		  <div id='logo-name-container'>
 		  {/* <i class="fa-thin fa-crown fa-2xl"></i> */}
+		  <i class="fa-regular fa-crown"></i>
 			<h1>PHOTOCA</h1>
 		  </div>
 		</NavLink>

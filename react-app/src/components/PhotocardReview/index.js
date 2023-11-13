@@ -13,6 +13,7 @@ function PhotocardReview () {
     const { id } = useParams();
     const photocard = useSelector((state) => state.photocards.singlePhotocard);
     const user = useSelector((state) => state.session.user.id);
+    const sessionUser = useSelector((state) => state.session.user);
     const reviews = useSelector((state) => state.reviews.photocard);
     const [isLoaded, setIsLoaded] = useState(false);
     const [key, setKey] = useState(0);
@@ -62,13 +63,17 @@ function PhotocardReview () {
               <div>
                 <div className="photocard-review-container">
                   {photocard.review > 1 ? 'Reviews' : 'Review'}
-                  <div className="post-button">
+                  {sessionUser && !sortedReviews.find((review) => review.user_id === sessionUser) &&
+                  photocard.user_id !== sessionUser?.id && (
+                    <div className="post-button">
                     {/* {user && !sortedReviews.find((review) => review.userId === user.id) && photocard.UserId !== user?.id && ( */}
+
                       <OpenModalButton
                         buttonText="Post Your Review"
                         modalComponent={<CreateReview photocard={photocard} user={user} onReviewSubmitted={handleSubmit} />}
-                      />
+                        />
                   </div>
+                        )}
                 </div>
                 {sortedReviews.map((review) => (
                   <div key={review.id}>
@@ -101,7 +106,7 @@ function PhotocardReview () {
                 ))}
               </div>
 
-              <div>
+              {/* <div>
                 <div className="new-container">
                   <div className="post-review-button">
                     {user && !sortedReviews.find((review) => review.userId === user.id) && photocard.userId !== user?.id && (
@@ -117,7 +122,7 @@ function PhotocardReview () {
                     Be the first to post a review!
                   </h3>
                 )}
-              </div>
+              </div> */}
           </div>
         </div>
       );

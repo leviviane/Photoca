@@ -14,6 +14,7 @@ function SinglePhotocardPage() {
     // const allPhotocardObj = useSelector((state) => state.photocards.allPhotocards)
     const photocard = useSelector((state) => state.photocards.singlePhotocard)
     // const sessionUser = useSelector((state) => state.photocards.userId)
+    const currentUser = useSelector((state) => state.session.user)
 
     useEffect(() => {
         dispatch(getSinglePhotocardThunk(id))
