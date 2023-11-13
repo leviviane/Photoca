@@ -12,17 +12,17 @@ function Navigation({ isLoaded }){
 		<NavLink exact to='/'>
 		  <div id='logo-name-container'>
 		  {/* <i class="fa-thin fa-crown fa-2xl"></i> */}
-			<h1>Photoca</h1>
+			<h1>PHOTOCA</h1>
 		  </div>
 		</NavLink>
 
-	  <div id='manage-your-photocard-container'>
+	  {/* <div id='manage-your-photocard-container'>
 		{sessionUser && (
 			<NavLink className='nav-link' to='/photocards/current'>
 				<span>Manage Photocards</span>
 			</NavLink>
 		)}
-	  </div>
+	  </div> */}
       {isLoaded && (
         <div id='nav-container'>
           {/* <i className="fa-solid fa-bars"></i> */}

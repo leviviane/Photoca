@@ -4,8 +4,21 @@
     justify-content: space-between;
     gap: 20px;
     justify-content: center;
-    
 }
+
+
+.manage-photocard-list .image-box {
+    width: 230px;
+    height: 320px;
+    border-radius: 20px;
+    padding: 10px 10px 0 10px;
+    object-fit: cover;
+  }
+
+  .manage-photocards-container {
+    font-family: sans-serif;
+  }
+
 
 /* .photocard-manage {
     width: 130px;

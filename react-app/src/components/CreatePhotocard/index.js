@@ -58,8 +58,8 @@ function CreatePhotocardForm() {
   return (
     <div className="create-photocard-form-container">
       <div className="create-background">
-        <div className="create-drama-header">Post your Photocard Listing</div>
-        <div className="create-drama-form-container">
+        <h2 className="create-photocard-header">Post your Photocard Listing</h2>
+        <div className="create-photocard-form-container">
           <form
             className="create-photocard-form"
             onSubmit={handleSubmit}

@@ -4,14 +4,16 @@ import { useParams } from "react-router-dom";
 import { getSinglePhotocardThunk } from "../../store/photocard";
 import CreateReview from "../CreateReview";
 // import PhotocardReview from "../PhotocardReview";
-import "./SinglePhotocardPage.css";
 import PhotocardReview from "../PhotocardReview";
+import './SinglePhotocardPage.css';
+
 
 function SinglePhotocardPage() {
     const dispatch = useDispatch();
     const { id } = useParams();
     // const allPhotocardObj = useSelector((state) => state.photocards.allPhotocards)
     const photocard = useSelector((state) => state.photocards.singlePhotocard)
+    // const sessionUser = useSelector((state) => state.photocards.userId)
 
     useEffect(() => {
         dispatch(getSinglePhotocardThunk(id))
@@ -21,6 +23,10 @@ function SinglePhotocardPage() {
         return null;
     }
 
+    // if (!sessionUser) {
+    //     return null;
+    // }
+
     return (
         <div className='main-single-card-page'>
             <div className='name-container'>
@@ -28,12 +34,12 @@ function SinglePhotocardPage() {
             </div>
             <div className='single-page-img-container'>
                 <div className='single-img-line'>
-                    <img src={photocard.photocard_image} alt={photocard.listing_name} />
+                    <img className='photocard-img-line' src={photocard.photocard_image} alt={photocard.listing_name} />
                 </div>
             </div>
             <div className='price-description-container'>
-                <p className='single-price-line'>{photocard.price}</p>
-                <p className='single-description-line'>{photocard.description}</p>
+                <p className='single-price-line'>Price: ${photocard.price}</p>
+                <p className='single-description-line'>Card Details: {photocard.description}</p>
             </div>
             <PhotocardReview />
             {/* <CreateReview /> */}

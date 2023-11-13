@@ -61,6 +61,7 @@ function ManagePhotocard() {
                         name={photocard.listing_name}
                       />
                     </NavLink>
+                    <p></p>
                     <div className="update-button-container">
                         <div style={{ display: 'inline-block' }}>
                             <NavLink to={`/photocards/${photocard.id}/update`}>
