@@ -1,0 +1,23 @@
+.delete-review-modal {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: lightgray;
+    font-family: sans-serif;
+}
+
+.yes-delete-review {
+    padding: auto;
+    margin-right: 5px;
+    font-family: sans-serif;
+}
+
+.no-delete-review {
+    padding-left: auto;
+}
+
+.close-review-modal {
+    position: relative;
+}

@@ -1,0 +1,40 @@
+.main-update-review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: lightgray;
+  }
+
+  .review-update-box {
+    width: 80%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+  }
+
+  .update-review-form-container {
+    margin-top: 20px;
+  }
+
+  .update-review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .errors {
+    color: red;
+  }
+
+  .update-review-button {
+     margin-top: 10px;
+  }

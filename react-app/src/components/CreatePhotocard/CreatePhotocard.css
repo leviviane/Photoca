@@ -4,19 +4,48 @@
     font-family: sans-serif;
     align-items: center;
     justify-content: center;
-}
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+  }
 
-.create-photocard-errors {
+  .create-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .create-photocard-errors {
     color: red;
     margin-top: 5px;
     font-size: 12px;
-}
+  }
 
-.errors {
-    color: red;
-}
-
-.create-background {
+  .create-photocard-form {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .create-photocard-button {
+    cursor: pointer;
+    background-color: grey;
+    border-radius: 5px;
+  }
+
+  .create-photocard-title,
+  .create-photocard-img,
+  .create-photocard-price,
+  .create-photocard-description,
+  .create-photocard-submit {
+    text-align: center;
+    padding: auto;
+  }
+
+  .create-photocard-label {
+    display: block;
+    margin-bottom: 5px;
+  }

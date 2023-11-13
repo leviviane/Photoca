@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { updateReviewThunk, getAllReviewsThunk } from "../../store/review";
+import "./UpdateReview.css"
 
 function UpdateReview({ photocardId, review }) {
     const dispatch = useDispatch();
@@ -68,7 +69,7 @@ function UpdateReview({ photocardId, review }) {
                     <label className='update-review-label'>
                         {/* Review */}
                         <div className='update-review-box'>
-                            <input
+                            <input className='review-update-box'
                             type="text"
                             value={text}
                             onChange={(e) => setText(e.target.value)}
