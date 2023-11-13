@@ -81,7 +81,9 @@ function PhotocardReview () {
                       <h3 className="user-name">{review?.User?.first_name}</h3>
                       <h5 className="review-date">{createDate(review.createdAt)}</h5>
                       <p className="review-description">{review.text}</p>
-                      <div className='update-review-button'>
+                      {sessionUser && (
+                        <div className='update-review-button-container'>
+                          <div className='update-review-button'>
                         {review.user_id === sessionUser.id && (
                           <OpenModalButton
                           buttonText='Update'
@@ -101,6 +103,8 @@ function PhotocardReview () {
                           />
                         )}
                       </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
