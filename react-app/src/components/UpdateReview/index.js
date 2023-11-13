@@ -7,8 +7,9 @@ import { updateReviewThunk, getAllReviewsThunk } from "../../store/review";
 function UpdateReview({ photocardId, review }) {
     const dispatch = useDispatch();
     // const history = useHistory();
-    // const { reviewId } = useParams();
+    // const { photocardId } = useParams();
     const reviewObj = useSelector((state) => state.reviews.photocard);
+    console.log('HEELOOOO', reviewObj)
     const userId = useSelector((state) => state.session.user.id);
     const { closeModal } = useModal();
 
@@ -43,7 +44,7 @@ function UpdateReview({ photocardId, review }) {
             id: review.id,
             photocard_id: photocardId,
             user_id: userId,
-            text
+            text: text
         };
 
         if (Object.keys(errorsFound).length === 0) {
@@ -63,9 +64,9 @@ function UpdateReview({ photocardId, review }) {
         <div className='main-update-review-container'>
             <div className='updated-review-title'>Update your Review</div>
             <div className='update-review-form-container'>
-                <form classNme='update-review-form' onSubmit={handleSubmit}>
+                <form className='update-review-form' onSubmit={handleSubmit}>
                     <label className='update-review-label'>
-                        Review
+                        {/* Review */}
                         <div className='update-review-box'>
                             <input
                             type="text"

@@ -12,6 +12,7 @@ function CreateReview( {photocard} ) {
     const history = useHistory();
     const { id } = useParams();
     const userId = useSelector((state) => state.session.user.id)
+    const sessionUser = useSelector((state) => state.session.user)
     // const photocardId = useSelector((state) => state.singlePhotocard.photocard.id)
     const { closeModal } = useModal();
 

@@ -14,6 +14,7 @@ function SinglePhotocardPage() {
     // const allPhotocardObj = useSelector((state) => state.photocards.allPhotocards)
     const photocard = useSelector((state) => state.photocards.singlePhotocard)
     // const sessionUser = useSelector((state) => state.photocards.userId)
+    const currentUser = useSelector((state) => state.session.user)
 
     useEffect(() => {
         dispatch(getSinglePhotocardThunk(id))
@@ -38,8 +39,14 @@ function SinglePhotocardPage() {
                 </div>
             </div>
             <div className='price-description-container'>
-                <p className='single-price-line'>Price: ${photocard.price}</p>
-                <p className='single-description-line'>Card Details: {photocard.description}</p>
+                <div className='price-card-container'>
+                    <p className='price-card'>Price:</p>
+                    <p className='single-price-line'>${photocard.price}</p>
+                    </div>
+                    <div className='description-card-container'>
+                        <p className='price-card'>Card Details:</p>
+                        <p className='single-description-line'>{photocard.description}</p>
+                    </div>
             </div>
             <PhotocardReview />
             {/* <CreateReview /> */}
