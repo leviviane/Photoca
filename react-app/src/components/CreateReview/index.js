@@ -71,7 +71,7 @@ function CreateReview( {photocard} ) {
                     className='review-textarea'
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    placeholder='Review'
+                    placeholder='Review must be at least 10 characters'
                     />
                 </div>
                 <button

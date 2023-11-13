@@ -1,0 +1,16 @@
+.sign-up-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Sign-up-title {
+    text-align: center;
+  }
+
+  .signup-errors {
+    color: red;
+    margin-top: 5px;
+  }
+
+  /* Add any additional styles as needed */
