@@ -53,6 +53,8 @@ function UpdateReview({ photocardId, review }) {
 
             if (res) {
                 dispatch(getAllReviewsThunk(photocardId));
+
+                closeModal();
             }
         }
     };
