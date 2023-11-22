@@ -7,7 +7,7 @@ import "./UpdateReview.css"
 
 function UpdateReview({ photocardId, review }) {
     const dispatch = useDispatch();
-    // const history = useHistory();
+    const history = useHistory();
     // const { photocardId } = useParams();
     const reviewObj = useSelector((state) => state.reviews.photocard);
     console.log('HEELOOOO', reviewObj)
@@ -28,7 +28,7 @@ function UpdateReview({ photocardId, review }) {
 
     function errorsChecked(text) {
         const errors = {};
-        if (!text) errors.text = 'Review is required';
+        if (!text || text.length < 10) errors.text = "Review must be at least 10 character"
 
         setErrors(errors);
         return errors;
