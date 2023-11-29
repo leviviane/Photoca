@@ -110,7 +110,7 @@ const reviewReducer = (state = initialState, action) => {
             return newState;
         case UPDATE_REVIEW:
             newState = { ...state };
-            newState.photocard = action.review;
+            newState.photocard[action.review.id] = action.review;
             return newState;
         case DELETE_REVIEW:
             const reviewsObj = { ...state.photocard };

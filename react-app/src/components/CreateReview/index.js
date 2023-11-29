@@ -18,10 +18,11 @@ function CreateReview( {photocard} ) {
 
     const [text, setText] = useState("");
     const [errors, setErrors] = useState({});
+    const [hasSubmitted, setHasSubmitted] = useState(false);
 
     function errorsCheck(text) {
         const errors = {};
-        if (!text || text.length < 10) errors.text = "Review is required"
+        if (!text || text.length < 10) errors.text = "Review must be at least 10 character"
 
         setErrors(errors);
         return errors;
@@ -29,6 +30,7 @@ function CreateReview( {photocard} ) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setHasSubmitted(true);
         const errorsFound = errorsCheck(
             text
         );
@@ -74,10 +76,13 @@ function CreateReview( {photocard} ) {
                     placeholder='Review must be at least 10 characters'
                     />
                 </div>
+                {hasSubmitted &&  errors.text && (
+                    <p className='errors'>{errors.text}</p>
+                )}
                 <button
                 className='submit-review-button'
                 type='submit'
-                disabled={Object.keys(errors).length > 0 || text.length <10}
+                // disabled={Object.keys(errors).length > 0 || text.length <10}
                 >
                     Post your Review
                 </button>

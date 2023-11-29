@@ -1,4 +1,50 @@
-.main-update-review-container {
+.update-review-modal-container {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: lightgray;
+}
+
+.update-review-container {
+  margin-bottom: 20px;
+}
+
+.update-review-textarea {
+  width: 80%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+.submit-update-review-button {
+  background-color: grey;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+.submit-update-review-button:hover {
+  color: white
+}
+
+.update-purchase-line {
+  font-family: sans-serif;
+}
+
+
+
+
+
+
+
+/* .main-update-review-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,4 +83,4 @@
 
   .update-review-button {
      margin-top: 10px;
-  }
+  } */

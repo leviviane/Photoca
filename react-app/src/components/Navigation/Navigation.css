@@ -1,3 +1,4 @@
+
 .profile-dropdown {
   position: absolute;
 }
@@ -6,51 +7,12 @@
   display: none;
 }
 
-#login-button-container {
-  cursor: pointer;
-}
-
-#logo-container > a {
+.nav-link {
   text-decoration: none;
-  background-color: lightgray;
-  font-family: sans-serif;
-  color: black;
 }
-
-#create-photocard-container > a,
-#manage-your-photocard-container > a,
-#update-photocard-container > a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.greeting-box {
-  list-style-type: none;
-  display: block;
-}
-
-.login-signup-container {
-  display: block;
-}
-
-.login-button,
-.signup-button {
-  cursor: pointer;
-}
-
-.nav-container {
-  cursor: pointer;
-}
-
-.login-container {
-
-}
-
-
 
 #logo-name-container {
+  color: black;
   display: flex;
   align-items: center;
   display: flex;
