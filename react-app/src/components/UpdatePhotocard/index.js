@@ -62,7 +62,8 @@ function UpdatePhotocard({ submitted }) {
 
       if (res) {
         dispatch(getSinglePhotocardThunk(photocardId));
-        history.push(`/photocards/${photocardId}`);
+        // history.push(`/photocards/${photocardId}`);
+        history.push(`/photocards/current`);
       }
     }
   };

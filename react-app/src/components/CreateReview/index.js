@@ -68,7 +68,7 @@ function CreateReview( {photocard} ) {
             <form className='submit-review-form' onSubmit={handleSubmit}>
                 <div className='review-container'>
                     <h2 className='purchase-line'>How was your photocard?</h2>
-                    {/* {errors && <p className='server-error'></p>} */}
+                    {errors && <p className='server-error'></p>}
                     <textarea
                     className='review-textarea'
                     value={text}
