@@ -2,6 +2,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
   }
 
   ul {
@@ -20,4 +21,9 @@ form {
 
   .submit-signup-button {
     margin-top: 15px;
+  }
+
+  #sign-up-form-container,
+  #sign-up-title {
+    font-family: 'Roboto', sans-serif;
   }

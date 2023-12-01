@@ -21,3 +21,15 @@
   justify-content: center;
   height: 100px;
 }
+
+#logo-container {
+  /* border: 1px solid transparent; */
+  width: fit-content;
+  font-family: 'Roboto', sans-serif;
+}
+
+#login-button-container {
+  display: flex;
+  height: 40px;
+  width: 40px;
+}

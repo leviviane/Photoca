@@ -27,7 +27,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   .submit-review-button:hover {
@@ -35,7 +35,5 @@
   }
 
 .purchase-line {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
-
-

@@ -7,7 +7,7 @@
 }
 
 .main-single-card-page {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .main-single-card-page {
@@ -42,4 +42,3 @@
  .price-card {
   font-weight: bold;
  }
-
