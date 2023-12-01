@@ -82,7 +82,7 @@ function CreatePhotocardForm() {
             <div className="create-photocard-img">
               {" "}
               <label className="create-photocard-label">
-                Upload your Photocard picture
+                Upload your Photocard Picture
               </label>
               <input
                 type="file"

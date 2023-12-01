@@ -1,12 +1,89 @@
+.create-photocard-form {
+  width: 300px; /* Adjust this based on your layout needs */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+.create-photocard-title,
+.create-photocard-img,
+.create-photocard-price,
+.create-photocard-description,
+.create-photocard-submit {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.create-photocard-label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.create-photocard-form input,
+.create-photocard-form textarea {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+}
+
 .create-photocard-form-container {
-    width: 600px;
-    margin: auto;
-    font-family: sans-serif;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    font-family: sans-serif;
+  width: 600px;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  }
+
+  .create-photocard-header {
+    text-align: center;
+  }
+
+  .create-photocard-form input[type="text"],
+  .create-photocard-form input[type="number"],
+  .create-photocard-form input[type="file"],
+  .create-photocard-form textarea {
+    width: 100%;
+    padding: 8px;
+    /* box-sizing: border-box; */
+    max-width: 350px;
+    display: inline-block;
+  }
+
+  .create-photocard-button {
+    background-color: grey;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .create-photocard-button:hover {
+    color: white;
+  }
+
+  .create-photocard-errors {
+    color: red;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+/* .create-photocard-form-container {
+  width: 600px;
+  margin: auto;
+  font-family: sans-serif;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
   }
 
   .create-background {
@@ -48,4 +125,4 @@
   .create-photocard-label {
     display: block;
     margin-bottom: 5px;
-  }
+  } */

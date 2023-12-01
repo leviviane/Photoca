@@ -5,13 +5,13 @@
     width: 280px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: lightgray;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .yes-delete-review {
     padding: auto;
     margin-right: 5px;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .no-delete-review {
