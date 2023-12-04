@@ -57,15 +57,24 @@ function CreateReview( {photocard} ) {
         }
     }
 
-    const cancelReview = (e) => {
-        e.preventDefault();
-        closeModal();
-    };
+    // const handleClose = () => {
+    //     closeModal();
+    // };
+
+    // const cancelReview = (e) => {
+    //     e.preventDefault();
+    //     closeModal();
+    // };
 
 
     return (
         <div className='review-modal-container'>
             <form className='submit-review-form' onSubmit={handleSubmit}>
+                {/* <div className='close-review-modal'>
+                    <button className='close-review-modal-button' onClick={handleClose}>
+                        X
+                    </button>
+                </div> */}
                 <div className='review-container'>
                     <h2 className='purchase-line'>How was your photocard?</h2>
                     {errors && <p className='server-error'></p>}

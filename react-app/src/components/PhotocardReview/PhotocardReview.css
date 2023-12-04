@@ -1,0 +1,10 @@
+.post-your-review-modal {
+    cursor: pointer !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+    margin-top: 10px !important;
+  }
+
+  .post-button:hover {
+    text-decoration: none !important;
+  }

@@ -12,10 +12,30 @@
     padding: auto;
     margin-right: 5px;
     font-family: 'Roboto', sans-serif;
+    background-color: grey;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    height: 30px
+
 }
 
 .no-delete-review {
     padding-left: auto;
+    background-color: grey;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    height: 30px;
+}
+
+.yes-delete-review:hover,
+.no-delete-review:hover {
+    color: white;
 }
 
 .close-review-modal {

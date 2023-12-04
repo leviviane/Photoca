@@ -46,7 +46,7 @@ function DeletePhotocardModal( { photocard, submitted }) {
                 </button>
                 <h2 className='confirm-photocard-delete-title'>Confirm Delete</h2>
                 <div className='photocard-ask-delete-box'>
-                    Are you sure you want to delete this photocard listing?
+                    <p className='confirmation-message'>Are you sure you want to delete this photocard listing?</p>
                 </div>
                 <div className='photocard-delete-buttons'>
                     <button className='yes-delete-photocard' onClick={confirmDelete}>

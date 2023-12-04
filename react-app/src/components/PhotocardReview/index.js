@@ -66,13 +66,12 @@ function PhotocardReview () {
                   {photocard.review > 1 ? 'Reviews' : 'Reviews'}
                   {sessionUser && !sortedReviews.find((review) => review.user_id === sessionUser) &&
                   photocard.user_id !== sessionUser?.id && (
-                    <div className="post-button">
-                    {/* {user && !sortedReviews.find((review) => review.userId === user.id) && photocard.UserId !== user?.id && ( */}
-
-                      <OpenModalButton
-                        buttonText="Post Your Review"
-                        modalComponent={<CreateReview photocard={photocard} user={sessionUser} onReviewSubmitted={handleSubmit} />}
-                        />
+                  <div className="post-button">
+                    <OpenModalButton
+                    className='post-your-review-modal'
+                    buttonText="Post Your Review"
+                    modalComponent={<CreateReview photocard={photocard} user={sessionUser} onReviewSubmitted={handleSubmit} />}
+                    />
                   </div>
                         )}
                 </div>
