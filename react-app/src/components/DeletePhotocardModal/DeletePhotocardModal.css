@@ -1,0 +1,61 @@
+.delete-photocard-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .confirmation-message {
+    font-size: 15px;
+  }
+
+  .close-photocard-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .confirm-photocard-delete-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .photocard-ask-delete-box {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+  }
+
+  .photocard-delete-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .yes-delete-photocard,
+  .no-delete-photocard {
+    background-color: grey;
+    color: black;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .yes-delete-photocard:hover,
+  .no-delete-photocard:hover {
+    color: white;
+  }

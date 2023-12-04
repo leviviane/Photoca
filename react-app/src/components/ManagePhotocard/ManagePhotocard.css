@@ -1,23 +1,50 @@
 .manage-photocard-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: space-between;
-    gap: 20px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  gap: 20px;
+  justify-content: center;
 }
 
-
 .manage-photocard-list .image-box {
-    width: 230px;
-    height: 320px;
-    border-radius: 20px;
-    padding: 10px 10px 0 10px;
-    object-fit: cover;
-  }
+  width: 230px;
+  height: 320px;
+  border-radius: 20px;
+  padding: 10px 10px 0 10px;
+  object-fit: cover;
+}
 
-  .manage-photocards-container {
-    font-family: 'Roboto', sans-serif;
-  }
+.manage-photocards-container {
+  font-family: 'Roboto', sans-serif;
+}
+
+.manage-create-link {
+  text-decoration: none;
+  color: rgb(68, 70, 74);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.manage-update-button,
+.manage-delete-button {
+  background-color: grey;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+.manage-update-button {
+  margin-right: 10px;
+}
+
+.manage-update-button:hover,
+.manage-delete-button:hover {
+  color: white;
+}
+
 
 
 /* .photocard-manage {

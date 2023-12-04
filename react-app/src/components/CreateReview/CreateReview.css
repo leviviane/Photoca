@@ -37,3 +37,27 @@
 .purchase-line {
     font-family: 'Roboto', sans-serif;
 }
+
+/* .review-modal-container {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: lightgray;
+  position: relative;
+}
+
+.close-review-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-review-modal-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: black;
+} */
