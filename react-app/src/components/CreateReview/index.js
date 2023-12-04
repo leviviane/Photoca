@@ -86,7 +86,7 @@ function CreateReview( {photocard} ) {
                     />
                 </div>
                 {hasSubmitted &&  errors.text && (
-                    <p className='errors'>{errors.text}</p>
+                    <p className='create-review-errors'>{errors.text}</p>
                 )}
                 <button
                 className='submit-review-button'

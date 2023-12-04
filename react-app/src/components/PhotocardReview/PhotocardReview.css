@@ -1,10 +1,48 @@
 .post-your-review-modal {
-    cursor: pointer !important;
-    text-decoration: underline !important;
-    font-weight: bold !important;
-    margin-top: 10px !important;
-  }
+  cursor: pointer ;
+  text-decoration: underline ;
+  font-weight: bold ;
+  margin-top: 10px ;
+}
 
-  .post-button:hover {
-    text-decoration: none !important;
-  }
+.post-button:hover {
+  text-decoration: none ;
+}
+
+.post-your-review-pop-up {
+  border: none;
+  text-decoration: underline;
+  text-align: center;
+  color: #333;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.post-your-review-pop-up:hover,
+.update-review-pop-up:hover,
+.delete-review-pop-up:hover {
+  color: white;
+}
+
+.update-review-pop-up,
+.delete-review-pop-up {
+  background-color: grey;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+.update-review-button-container {
+  display: flex;
+}
+
+.update-review-button,
+.delete-review-button {
+  margin-right: 10px;
+}

@@ -1,0 +1,51 @@
+.login-container-form-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: lightgray;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-title {
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+
+.email-fields,
+.password-fields {
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-submit-button button {
+    padding: auto;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    background-color: grey;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-submit-button button:hover {
+    color: white;
+}
+
+.demo-user-button {
+    border: none;
+    text-decoration: underline;
+    text-align: center;
+    color: #333;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.demo-user-button:hover {
+    color: white;
+}

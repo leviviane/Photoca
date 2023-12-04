@@ -63,6 +63,7 @@ function ManagePhotocard() {
                   <div style={{ display: 'inline-block' }}>
                     <OpenModalButton
                       buttonText="Delete"
+                      styling='delete-photocard-pop-up'
                       modalComponent={
                         <DeletePhotocardModal
                           submitted={() => setSubmitted(true)}

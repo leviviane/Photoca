@@ -68,6 +68,7 @@ function PhotocardReview () {
                   photocard.user_id !== sessionUser?.id && (
                   <div className="post-button">
                     <OpenModalButton
+                    styling='post-your-review-pop-up'
                     className='post-your-review-modal'
                     buttonText="Post Your Review"
                     modalComponent={<CreateReview photocard={photocard} user={sessionUser} onReviewSubmitted={handleSubmit} />}
@@ -87,6 +88,7 @@ function PhotocardReview () {
                         {review.user_id === sessionUser.id && (
                           <OpenModalButton
                           buttonText='Update'
+                          styling='update-review-pop-up'
                           modalComponent={
                             <UpdateReview review={review} userId={photocard.id} photocardId={photocard.id} />
                           }
@@ -97,6 +99,7 @@ function PhotocardReview () {
                         {review.user_id === sessionUser.id && (
                           <OpenModalButton
                             buttonText="Delete"
+                            styling='delete-review-pop-up'
                             modalComponent={
                               <DeleteReviewModal review={review} userId={photocard.id} />
                             }
