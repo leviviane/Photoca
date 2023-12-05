@@ -32,18 +32,18 @@ function DeletePhotocardModal( { photocard, submitted }) {
         closeModal();
     };
 
-    const handleClose = () => {
-        closeModal();
-      };
+    // const handleClose = () => {
+    //     closeModal();
+    //   };
 
     return (
         <>
         {exist && (
             <>
             <div className='delete-photocard-modal'>
-                <button className='close-photocard-modal' onClick={handleClose}>
+                {/* <button className='close-photocard-modal' onClick={handleClose}>
                     X
-                </button>
+                </button> */}
                 <h2 className='confirm-photocard-delete-title'>Confirm Delete</h2>
                 <div className='photocard-ask-delete-box'>
                     <p className='confirmation-message'>Are you sure you want to delete this photocard listing?</p>

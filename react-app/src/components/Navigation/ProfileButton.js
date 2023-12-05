@@ -19,7 +19,7 @@ function ProfileButton({ user }) {
   };
 
   useEffect(() => {
-    if (!showMenu) return;
+    if (!showMenu) return
 
     const closeMenu = (e) => {
       if (!ulRef.current.contains(e.target)) {
@@ -62,20 +62,24 @@ function ProfileButton({ user }) {
               </NavLink>
             </li>
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <button className='log-out-button' onClick={handleLogout}>Log Out</button>
             </li>
           </div>
         ) : (
           <div className='login-signup-container'>
-            <OpenModalButton className='login-button'
-              buttonText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
+            <OpenModalButton
+            className='login-button'
+            buttonText="Log In"
+            styling='log-in-pop-up'
+            onItemClick={closeMenu}
+            modalComponent={<LoginFormModal />}
             />
-            <OpenModalButton className='signup-button'
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
+            <OpenModalButton
+            className='signup-button'
+            buttonText="Sign Up"
+            styling='sign-up-pop-up'
+            onItemClick={closeMenu}
+            modalComponent={<SignupFormModal />}
             />
           </div>
         )}

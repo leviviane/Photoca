@@ -5,7 +5,7 @@ import { getAllReviewsThunk } from "../../store/review";
 import OpenModalButton from "../OpenModalButton";
 import DeleteReviewModal from "../DeleteReviewModal";
 import CreateReview from "../CreateReview";
-import UpdatePhotocard from "../UpdatePhotocard";
+// import UpdatePhotocard from "../UpdatePhotocard";
 import UpdateReview from "../UpdateReview";
 import "./PhotocardReview.css"
 

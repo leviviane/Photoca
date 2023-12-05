@@ -1,0 +1,90 @@
+/* .main-update-photocard-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+}
+
+.update-container {
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    border: 2px solid black;
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.update-photocard-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.update-photocard-button {
+    background-color: grey;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    width: 150px;
+    margin: 0 auto;
+    display: block;
+}
+
+.update-photocard-button:hover {
+    color: white;
+}
+
+.update-photocard-title {
+    font-weight: bold;
+} */
+
+.main-update-photocard-container {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px; /* Adjust as needed */
+    text-decoration: none;
+}
+
+.update-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.update-photocard-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.update-photocard-fields {
+    margin-bottom: 20px;
+}
+
+.update-photocard-button {
+    background-color: grey;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    width: 150px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.update-photocard-button:hover {
+    color: white;
+}
