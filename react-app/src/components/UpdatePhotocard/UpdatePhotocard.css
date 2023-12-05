@@ -1,0 +1,94 @@
+.main-update-photocard-container {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.update-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.update-photocard-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.update-photocard-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.update-name-input,
+.update-price-input,
+.update-text-area-input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.update-photocard-button {
+    background-color: grey;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    width: 150px;
+    margin: 0 auto;
+    display: block;
+}
+
+.update-photocard-button:hover {
+    color: white;
+}
+
+.update-photocard-title {
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.update-text-area {
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.update-photocard-label {
+    font-size: 13px;
+}
+
+.update-photocard-form input,
+.update-photocard-form textarea {
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.update-photocard-form textarea {
+    width: 100%;
+}
+
+.errors {
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}

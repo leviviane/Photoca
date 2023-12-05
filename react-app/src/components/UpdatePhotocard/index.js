@@ -78,12 +78,14 @@ function UpdatePhotocard({ submitted }) {
               <label className="update-photocard-label">
                 Photocard Name
                 <div className="update-photocard-name">
+                  <div className='update-name-input'>
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Photocard Name"
                   />
+                  </div>
                 </div>
               </label>
               {hasSubmitted && errors.name && (
@@ -94,12 +96,14 @@ function UpdatePhotocard({ submitted }) {
               <label className="update-photocard-label">
                 How much will you list this photocard for?
                 <div className="update-photocard-price">
+                  <div className='update-price-input'>
                   <input
                     type="number"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                     placeholder="Price (USD)"
                   />
+                  </div>
                 </div>
               </label>
               {hasSubmitted && errors.price && (
@@ -109,12 +113,16 @@ function UpdatePhotocard({ submitted }) {
             <div className="update-photocard-fields">
               <label className="update-photocard-label">
                 Describe the details of your photocard
+                <div className='update-text-area'>
+                  <div className='update-text-area-input'>
                 <textarea
                   type="textarea"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Description"
                 />
+                  </div>
+                </div>
               </label>
               {hasSubmitted && errors.description && (
                 <p className="errors">{errors.description}</p>

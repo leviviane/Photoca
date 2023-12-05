@@ -1,45 +1,46 @@
 .review-modal-container {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    width: 500px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: lightgray;
-  }
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: lightgray;
+}
 
-  .review-container {
-    margin-bottom: 20px;
-  }
+.review-container {
+  margin-bottom: 20px;
+}
 
-  .review-textarea {
-    width: 80%;
-    height: 80px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
-  }
+.review-textarea {
+  width: 80%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
 
-  .submit-review-button {
-    background-color: grey;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-  }
+.submit-review-button {
+  background-color: grey;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
 
-  .submit-review-button:hover {
-    color: white
-  }
+.submit-review-button:hover {
+  color: white
+}
 
 .purchase-line {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .create-review-errors {
-  color: red;
+color: red;
+font-family: 'Roboto', sans-serif;
 }
 
 /* .review-modal-container {

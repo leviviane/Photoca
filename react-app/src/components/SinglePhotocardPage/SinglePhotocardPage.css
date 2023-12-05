@@ -7,13 +7,15 @@
 }
 
 .main-single-card-page {
-  font-family: 'Roboto', sans-serif;
-}
-
-.main-single-card-page {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  width: fit-content;
+  /* margin-top: 100px; */
 }
 
 .photocard-name-line {
@@ -39,6 +41,7 @@
 .price-card {
   margin-right: 5px;
 }
+
  .price-card {
   font-weight: bold;
- }
+}

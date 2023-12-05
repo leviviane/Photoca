@@ -12,7 +12,7 @@ function Navigation({ isLoaded }){
 		<div id='logo-container'>
 		<NavLink className='nav-link' exact to='/'>
 		  <div id='logo-name-container'>
-		  <i class="fa fa-crown"></i>
+		  <i className="fa fa-crown"></i>
 		  <h1 className='main-page-title'>PHOTOCA</h1>
 		  </div>
 		</NavLink>
@@ -20,9 +20,11 @@ function Navigation({ isLoaded }){
 
       {isLoaded && (
         <div id='nav-container'>
-		  <div id='login-button-container'>
-          <ProfileButton user={sessionUser} />
-		  </div>
+			<div className='profile-button-container'>
+				<div id='login-button-container'>
+					<ProfileButton user={sessionUser} />
+				</div>
+			</div>
         </div>
       )}
 		</div>
