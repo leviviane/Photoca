@@ -51,6 +51,7 @@ function ManagePhotocard() {
                     className="image-box"
                     alt={photocard.listing_name}
                     name={photocard.listing_name}
+                    title={photocard.listing_name}
                   />
                 </NavLink>
                 <p></p>

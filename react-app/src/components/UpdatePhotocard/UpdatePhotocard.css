@@ -86,3 +86,9 @@
 .update-photocard-form textarea {
     width: 100%;
 }
+
+.errors {
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}

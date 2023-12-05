@@ -35,7 +35,8 @@
 .greeting-box {
   font-family: 'Roboto', sans-serif;
   border: 1.5px solid black;
-  padding: auto;
+  padding: 7px;
+  border-radius: 5px;
 }
 
 .profile-icons-container {
