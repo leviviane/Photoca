@@ -41,8 +41,19 @@
 }
 
 .manage-update-button:hover,
-.manage-delete-button:hover {
+.delete-photocard-pop-up:hover,
+.manage-create-link:hover {
   color: white;
+}
+
+.delete-photocard-pop-up {
+  background-color: grey;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 }
 
 

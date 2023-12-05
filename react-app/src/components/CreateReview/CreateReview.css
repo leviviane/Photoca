@@ -38,6 +38,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.create-review-errors {
+  color: red;
+}
+
 /* .review-modal-container {
   border: 1px solid #ccc;
   border-radius: 10px;

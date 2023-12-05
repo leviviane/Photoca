@@ -113,4 +113,3 @@ def delete_photocard(id):
     else:
         print(file_to_delete)
         return {'error': 'Photocard listing does not exist'}, 404
-

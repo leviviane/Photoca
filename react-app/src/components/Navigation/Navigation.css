@@ -23,13 +23,61 @@
 }
 
 #logo-container {
-  /* border: 1px solid transparent; */
+  border: 1px solid transparent;
   width: fit-content;
   font-family: 'Roboto', sans-serif;
+}
+
+.greeting-box {
+  font-family: 'Roboto', sans-serif;
+  border: 1.5px solid black;
+  padding: auto;
+}
+
+.profile-icons-container {
+  margin-left: auto;
 }
 
 #login-button-container {
   display: flex;
   height: 40px;
   width: 40px;
+}
+
+.bars-icon {
+  width: 25px;
+  height: 25px;  margin-right: 5px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rounded-icon-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 50px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#nav-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 80px;
+}
+
+#logo-container {
+  position: fixed;
+  top: 10%; /* Adjust this value to move it higher or lower */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+#logo-name-container {
+  text-align: center;
 }

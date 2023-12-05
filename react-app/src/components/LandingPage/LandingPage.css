@@ -13,6 +13,9 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   justify-content: center;
+  border: 1px solid transparent;
+  /* width: fit-content; */
+  margin-top: 60px;
 }
 
 .main-landing-page {
@@ -25,6 +28,8 @@
 .photocard-nav-link {
   text-decoration: none;
   color: black;
+  border: 1px solid transparent;
+  width: fit-content;
 }
 
 body {
