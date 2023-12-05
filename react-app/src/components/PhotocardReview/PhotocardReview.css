@@ -46,3 +46,7 @@
 .delete-review-button {
   margin-right: 10px;
 }
+
+.photocard-review-container {
+  font-weight: bold;
+}
