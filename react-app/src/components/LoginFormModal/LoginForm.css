@@ -38,7 +38,7 @@
 
 .demo-user-button {
     border: none;
-    text-decoration: underline;
+    text-decoration: none;
     text-align: center;
     color: #333;
     background-color: transparent;
