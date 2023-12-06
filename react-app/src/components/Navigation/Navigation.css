@@ -37,6 +37,7 @@
   border: 1.5px solid black;
   padding: 7px;
   border-radius: 5px;
+  background-color: white;
 }
 
 .profile-icons-container {
@@ -129,9 +130,12 @@
 
 .log-out-button:hover,
 .log-in-pop-up:hover,
-.sign-up-pop-up:hover,
-.manage-line:hover {
+.sign-up-pop-up:hover{
   color: white;
+}
+
+.manage-line:hover {
+  color: black;
 }
 
 
