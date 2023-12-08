@@ -20,6 +20,22 @@ def seed_reviews():
     )
     db.session.add(review2)
 
+    review3 = Review (
+    user_id = 1,
+    photocard_id = 22,
+    text = "Great transaction but wish the quality of this card was better",
+    created_at = date.today()
+    )
+    db.session.add(review3)
+
+    review4 = Review (
+    user_id = 1,
+    photocard_id = 5,
+    text = "I have been on the hunt for this card at a reasonable price, so happy I found it",
+    created_at = date.today()
+    )
+    db.session.add(review4)
+
     db.session.commit()
 
 
