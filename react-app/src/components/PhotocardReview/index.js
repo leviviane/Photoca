@@ -82,7 +82,7 @@ function PhotocardReview () {
                   <div className='update-review-button'>
                     {review.user_id === sessionUser.id && (
                       <OpenModalButton
-                        buttonText='Update'
+                        buttonText='Update'l
                         styling='update-review-pop-up'
                         modalComponent={
                           <UpdateReview review={review} userId={photocard.id} photocardId={photocard.id} />
