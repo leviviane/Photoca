@@ -1,7 +1,6 @@
 .manage-photocard-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  justify-content: space-between;
   gap: 20px;
   justify-content: center;
 }
@@ -23,6 +22,17 @@
   color: rgb(68, 70, 74);
   font-weight: bold;
   cursor: pointer;
+}
+
+.manage-photocard-list .photocard-manage {
+  text-align: center;
+}
+
+.update-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Adjust margin-top as needed */
 }
 
 .manage-update-button,
