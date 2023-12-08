@@ -4,12 +4,12 @@ class Photocard(db.Model):
     __tablename__ = 'photocards'
 
     if environment == 'production':
-        __table_args__ = { 'schema': SCHEMA }
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     listing_name = db.Column(db.String, nullable=False)
-    price = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Numeric(precision=10, scale=2), nullable=False)
     description = db.Column(db.Text, nullable=False)
     photocard_image = db.Column(db.String, nullable=False)
 
@@ -22,7 +22,7 @@ class Photocard(db.Model):
             'id': self.id,
             'listing_name': self.listing_name,
             'user_id': self.user_id,
-            'price': self.price,
+            'price': float(self.price),
             'description': self.description,
             'photocard_image': self.photocard_image
         }

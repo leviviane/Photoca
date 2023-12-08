@@ -30,7 +30,7 @@ def seed_reviews():
 
     review4 = Review (
     user_id = 1,
-    photocard_id = 5,
+    photocard_id = 4,
     text = "I have been on the hunt for this card at a reasonable price, so happy I found it",
     created_at = date.today()
     )

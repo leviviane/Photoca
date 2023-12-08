@@ -30,6 +30,7 @@ function SinglePhotocardPage() {
 
     return (
         <div className='main-single-card-page'>
+            <div className='title-photocard-container'>
             <div className='name-container'>
                 <h3 className='photocard-name-line'>{photocard.listing_name}</h3>
             </div>
@@ -37,6 +38,7 @@ function SinglePhotocardPage() {
                 <div className='single-img-line'>
                     <img className='photocard-img-line' src={photocard.photocard_image} alt={photocard.listing_name} />
                 </div>
+            </div>
             </div>
             <div className='price-description-container'>
                 <div className='price-card-container'>
@@ -47,6 +49,7 @@ function SinglePhotocardPage() {
                         <p className='price-card'>Card Details:</p>
                         <p className='single-description-line'>{photocard.description}</p>
                     </div>
+                    <div className='description-line'></div>
             </div>
             <PhotocardReview />
             {/* <CreateReview /> */}

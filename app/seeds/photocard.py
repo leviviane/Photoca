@@ -31,18 +31,18 @@ def seed_photocard():
 
     photocard4 = Photocard (
     user_id=2,
-    listing_name='Peace sign Jungwon',
-    price=50.00,
-    description='Border:Hakanai Jungwon, solo jacket version',
+    listing_name='Teddywon',
+    price=25.00,
+    description='Border:Carnival Jungwon, hybe version',
     photocard_image='https://media.discordapp.net/attachments/1154550284698263596/1182460434834530364/IMG_6108.png?ex=6584c718&is=65725218&hm=f83a3a52391e101647072e43a32c9e4ec88b4191a4fc7586913c4cb704342ffe&=&width=635&height=1007'
     )
     db.session.add(photocard4)
 
     photocard5 = Photocard (
     user_id=2,
-    listing_name='Teddywon',
-    price=25.00,
-    description='Border:Carnival Jungwon, hybe version',
+    listing_name='Peace sign Jungwon',
+    price=50.00,
+    description='Border:Hakanai Jungwon, solo jacket version',
     photocard_image='https://media.discordapp.net/attachments/1154550284698263596/1182460435157483610/IMG_6109.png?ex=6584c718&is=65725218&hm=d6f4885bc21bd712d4c0d0a6b7ffa0b52a6d423e69bfb4cbf9160258a874d2b5&=&width=624&height=1005'
     )
     db.session.add(photocard5)

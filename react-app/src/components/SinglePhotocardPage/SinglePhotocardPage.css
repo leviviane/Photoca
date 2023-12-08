@@ -1,3 +1,16 @@
+.title-photocard-container {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photocard-name-line {
+  text-align: center;
+  text-decoration: underline;
+  margin-left: 0;
+}
+
 .single-img-line img {
   width: 330px;
   height: 500px;
@@ -12,36 +25,33 @@
   padding: 20px;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
-  border: 2px solid transparent;
+  /* border: 2px solid black; */
   border-radius: 20px;
   width: fit-content;
-  /* margin-top: 100px; */
 }
 
-.photocard-name-line {
-  margin-left: 45px;
-  text-decoration: underline;
-}
-
-
-.price-card-container {
+/* .price-description-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-}
+  margin-top: 10px;
+} */
 
-.price-card {
-  margin-right: 5px;
-}
-
+/* .price-card-container,
 .description-card-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-}
+  margin-top: 10px;
+} */
 
 .price-card {
   margin-right: 5px;
+  font-weight: bold;
 }
 
- .price-card {
-  font-weight: bold;
+.description-line {
+  width: 105px;
+  border: 1px solid black;
+  margin-bottom: 15px;
 }
