@@ -85,32 +85,6 @@ function UpdateReview({ photocardId, review }) {
             </form>
         </div>
     )
-
-    // return (
-    //     <div className='main-update-review-container'>
-    //         <div className='updated-review-title'>Update your Review</div>
-    //         <div className='update-review-form-container'>
-    //             <form className='update-review-form' onSubmit={handleSubmit}>
-    //                 <label className='update-review-label'>
-    //                     {/* Review */}
-    //                     <div className='update-review-box'>
-    //                         <input className='review-update-box'
-    //                         type="text"
-    //                         value={text}
-    //                         onChange={(e) => setText(e.target.value)}
-    //                         placeholder='Review'
-    //                         />
-    //                     </div>
-    //                 </label>
-    //                 {hasSubmitted && errors.text && (
-    //                     <p className='errors'>{errors.text}</p>
-    //                 )}
-    //                 <button type='submit' className='update-review-button'>Update Review</button>
-    //             </form>
-    //         </div>
-    //     </div>
-    // )
-
 };
 
 export default UpdateReview;

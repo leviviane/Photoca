@@ -37,9 +37,6 @@ function DeleteReviewModal( {review }) {
         {exist && (
             <>
             <div className='delete-review-modal'>
-                {/* <button className='close-review-modal' onClick={handleClose}>
-                    X
-                </button> */}
                 <h2 className='confirm-review-delete-title'>Confirm Delete</h2>
                 <div className='review-ask-delete-box'>
                     Are you sure you want to delete this review?
