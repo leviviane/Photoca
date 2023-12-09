@@ -32,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px; /* Adjust margin-top as needed */
+  margin-top: 10px;
 }
 
 .manage-update-button,
