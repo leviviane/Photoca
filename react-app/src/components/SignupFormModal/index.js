@@ -56,7 +56,6 @@ function SignupFormModal() {
 
                 <div className="form-group">
                     <label className="firstName">First Name</label>
-                    {errors.firstName && <p className="sign-up-errors">{errors.firstName}</p>}
                     <input
                         type="text"
                         id="firstName"
@@ -65,6 +64,7 @@ function SignupFormModal() {
                         onChange={(e) => setFirstName(e.target.value)}
                         required
                     />
+                    {errors.firstName && <p className="sign-up-errors">{errors.firstName}</p>}
                 </div>
                 <div className="form-group">
                     <label className="lastName">Last Name</label>
@@ -80,7 +80,6 @@ function SignupFormModal() {
                 </div>
                 <div className="form-group">
                     <label className="email">Email</label>
-                    {errors.email && <p className="sign-up-errors">{errors.email}</p>}
                     <input
                         type="text"
                         id="email"
@@ -89,10 +88,10 @@ function SignupFormModal() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
+                    {errors.email && <p className="sign-up-errors">{errors.email}</p>}
                 </div>
                 <div className="form-group">
                     <label className="username">Username</label>
-                    {errors.username && <p className="sign-up-errors">{errors.username}</p>}
                     <input
                         type="text"
                         id="username"
@@ -101,10 +100,10 @@ function SignupFormModal() {
                         onChange={(e) => setUsername(e.target.value)}
                         required
                     />
+                    {errors.username && <p className="sign-up-errors">{errors.username}</p>}
                 </div>
                 <div className="form-group">
                     <label className="password">Password</label>
-                    {errors.password && <p className="sign-up-errors">{errors.password}</p>}
                     <input
                         type="password"
                         id="password"
@@ -113,12 +112,10 @@ function SignupFormModal() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    {errors.password && <p className="sign-up-errors">{errors.password}</p>}
                 </div>
                 <div className="form-group">
                     <label className="confirmPassword">Confirm Password</label>
-                    {errors.confirmPassword && (
-                        <p className="sign-up-errors">{errors.confirmPassword}</p>
-                    )}
                     <input
                         type="password"
                         id="confirmPassword"
@@ -127,6 +124,8 @@ function SignupFormModal() {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                     />
+                    {errors.confirmPassword && (
+                    <p className="sign-up-errors">{errors.confirmPassword}</p>)}
                 </div>
                 <button type="submit" className='sign-up-button'>Sign Up</button>
             </form>

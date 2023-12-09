@@ -7,7 +7,7 @@
 
 .photocard-name-line {
   text-align: center;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   margin-left: 0;
 }
 
@@ -30,28 +30,16 @@
   width: fit-content;
 }
 
-/* .price-description-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-} */
-
-/* .price-card-container,
-.description-card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-} */
-
 .price-card {
   margin-right: 5px;
-  font-weight: bold;
 }
 
 .description-line {
   width: 105px;
   border: 1px solid black;
   margin-bottom: 15px;
+}
+
+.bold-text {
+  font-weight: bold;
 }
