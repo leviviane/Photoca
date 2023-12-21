@@ -13,6 +13,13 @@ Frontend: React
 
 Hosting: Render
 
+## Wiki Pages
+Database Schema: https://github.com/leviviane/Photoca/wiki/DB-Schema
+
+Feature List: https://github.com/leviviane/Photoca/wiki/Future-Implementation
+
+User Stories: https://github.com/leviviane/Photoca/wiki/User-Stories
+
 
 
 <!--
