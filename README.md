@@ -8,7 +8,9 @@ https://photoca.onrender.com
 
 ## Technologies Used
 Backend: Flask, SQLAlchemy
+
 Frontend: React
+
 Hosting: Render
 
 
