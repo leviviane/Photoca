@@ -1,3 +1,14 @@
+#Photoca
+
+##Intro
+A one stop shop for all your Kpop photocards. Users can create their own listing of cards that is for sale. The seller can also update and delete their listing On the buyer side, users can view, purchase cards, and leave reviews for the seller where they are also able to update and delete it.
+
+Check us out!
+https://photoca.onrender.com
+
+
+
+<!--
 # Flask React Project
 
 This is the starter for the Flask React project.
@@ -146,3 +157,4 @@ your site just below the name of the Web Service at the top of the page.
 
 [Render.com]: https://render.com/
 [Dashboard]: https://dashboard.render.com/# Photoca-2
+-->
