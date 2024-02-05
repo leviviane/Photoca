@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import HomePage from "./components/HomePage";
 import LandingPage from "./components/LandingPage";
 import SinglePhotocardPage from "./components/SinglePhotocardPage";
 import CreatePhotocardForm from "./components/CreatePhotocard";
@@ -23,7 +24,10 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/">
+          <Route exact path='/'>
+            <HomePage />
+          </Route>
+          <Route exact path="/photocards">
             <LandingPage />
           </Route>
           <Route path="/login" >
