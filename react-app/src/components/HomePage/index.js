@@ -53,11 +53,10 @@ function HomePage() {
 
         <div className='footer-info'>
             <h1 className='created-line'>Created by Viviane Le
-            <span className='linkedin-icon'>
+
                 <a style={{ color: '#0077b5' }} href='https://www.linkedin.com/in/leviviane/' target='_blank' rel='noopener noreferrer'>
                     <img src='/images/linkedin.svg' alt='Linkedin Icon' className='linkedin-icon' />
                 </a>
-            </span>
             <span>
                 <a href='https://github.com/leviviane' target='_blank rel='noopener noreferrer>
                     <img src='/images/square-github.svg' atl='Github Icon' className='github-icon' />
