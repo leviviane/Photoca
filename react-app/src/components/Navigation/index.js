@@ -18,6 +18,12 @@ function Navigation({ isLoaded }){
 		</NavLink>
 		</div>
 
+		<div className='main-photocard-link'>
+		<NavLink className="photocard-link" exact to="/photocards">
+			Shop all photocards
+        </NavLink>
+		</div>
+
       {isLoaded && (
         <div id='nav-container'>
 			<div className='profile-button-container'>

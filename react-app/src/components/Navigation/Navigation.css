@@ -147,3 +147,16 @@
   margin-top: 110px;
   margin-left: 50px;
 }
+
+.photocard-link {
+  text-decoration: none;
+  color: black;
+  background-color: grey;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: fit-content;
+}
