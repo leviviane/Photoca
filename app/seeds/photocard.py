@@ -179,7 +179,7 @@ def seed_photocard():
     listing_name='Ni-Ki JPFC',
     price=65.00,
     description='2023 JPFC PC, 1000 copies',
-    photocard_image='hhttps://i.imgur.com/HJrhQSz.jpg'
+    photocard_image='https://i.imgur.com/HJrhQSz.jpg'
     )
     db.session.add(photocard20)
 
