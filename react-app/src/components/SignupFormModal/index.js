@@ -46,7 +46,8 @@ function SignupFormModal() {
 
     return (
         <div className="sign-up-container">
-            <h1 className="sign-up-title">Sign Up</h1>
+            <h1 className="sign-up-title">Welcome,</h1>
+            <p className="sign-up-snippet">sign up to continue</p>
             <form onSubmit={handleSubmit}>
                 <div>
                     {errors && errors.length >= 1 && errors.map((error, idx) => (
@@ -55,7 +56,7 @@ function SignupFormModal() {
                 </div>
 
                 <div className="form-group">
-                    <label className="firstName">First Name</label>
+                    {/* <label className="firstName">First Name</label> */}
                     <input
                         type="text"
                         id="firstName"
@@ -67,7 +68,7 @@ function SignupFormModal() {
                     {errors.firstName && <p className="sign-up-errors">{errors.firstName}</p>}
                 </div>
                 <div className="form-group">
-                    <label className="lastName">Last Name</label>
+                    {/* <label className="lastName">Last Name</label> */}
                     {errors.lastName && <p className="sign-up-errors">{errors.lastName}</p>}
                     <input
                         type="text"
@@ -79,7 +80,7 @@ function SignupFormModal() {
                     />
                 </div>
                 <div className="form-group">
-                    <label className="email">Email</label>
+                    {/* <label className="email">Email</label> */}
                     <input
                         type="text"
                         id="email"
@@ -91,7 +92,7 @@ function SignupFormModal() {
                     {errors.email && <p className="sign-up-errors">{errors.email}</p>}
                 </div>
                 <div className="form-group">
-                    <label className="username">Username</label>
+                    {/* <label className="username">Username</label> */}
                     <input
                         type="text"
                         id="username"
@@ -103,7 +104,7 @@ function SignupFormModal() {
                     {errors.username && <p className="sign-up-errors">{errors.username}</p>}
                 </div>
                 <div className="form-group">
-                    <label className="password">Password</label>
+                    {/* <label className="password">Password</label> */}
                     <input
                         type="password"
                         id="password"
@@ -115,7 +116,7 @@ function SignupFormModal() {
                     {errors.password && <p className="sign-up-errors">{errors.password}</p>}
                 </div>
                 <div className="form-group">
-                    <label className="confirmPassword">Confirm Password</label>
+                    {/* <label className="confirmPassword">Confirm Password</label> */}
                     <input
                         type="password"
                         id="confirmPassword"
@@ -134,6 +135,3 @@ function SignupFormModal() {
 }
 
 export default SignupFormModal;
-
-
-

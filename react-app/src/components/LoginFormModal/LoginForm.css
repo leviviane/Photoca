@@ -1,12 +1,23 @@
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh;
-    background-color: lightgray; */
+  --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: black;
+  padding: 20px;
+  background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-family: 'Roboto', sans-serif;
   }
 
-  .login-container-form-box {
+  /* .login-container-form-box {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
@@ -16,10 +27,14 @@
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     width: 200px;
-  }
+  } */
 
   .login-title {
-    text-align: center;
+    color: var(--font-color);
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 25px;
+
   }
 
   .login-fields {
@@ -46,10 +61,17 @@
 
   .email-fields input,
   .password-fields input {
-    width: calc(100% - 10px);
-    padding: 8px;
-    border: 1px solid #ccc;
+    width: 250px;
+    height: 40px;
     border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 10px;
+    outline: none;
   }
 
   .login-submit-button {
@@ -57,17 +79,30 @@
   }
 
   .login-button {
-    background-color: grey;
-    border: none;
+    display: block;
+    margin: 50px auto 0 auto;
+    margin-top: 10px;
+    width: 120px;
+    height: 33px;
     border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
     cursor: pointer;
-    height: 30px;
+    justify-content: center;
+    align-items: center;
     font-family: 'Roboto', sans-serif;
   }
 
-  .login-button:hover {
-    color: white;
+  .login-button:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
   }
+
+
 
   .demo-user-container {
     text-align: center;
