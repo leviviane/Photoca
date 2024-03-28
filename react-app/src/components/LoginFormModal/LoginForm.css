@@ -27,7 +27,7 @@
     color: var(--font-color);
     font-weight: 900;
     font-size: 20px;
-    margin-bottom: 25px;
+    margin-bottom: -5px;
 
   }
 
@@ -55,8 +55,8 @@
 
   .email-fields input,
   .password-fields input {
-    width: 250px;
-    height: 40px;
+    width: 200px;
+    height: 30px;
     border-radius: 5px;
     border: 2px solid var(--main-color);
     background-color: var(--bg-color);
@@ -96,10 +96,9 @@
     transform: translate(3px, 3px);
   }
 
-
-
   .demo-user-container {
     text-align: center;
+    color: black;
   }
 
   .demo-user-button {

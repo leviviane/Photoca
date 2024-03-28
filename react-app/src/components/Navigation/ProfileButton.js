@@ -54,7 +54,7 @@ function ProfileButton({ user }) {
         {user ? (
           <div className='greeting-box'>
             <li>Hello {user.first_name}</li>
-            <li>{user.email}</li>
+            {/* <li>{user.email}</li> */}
             <li className='manage-photocard-profile'>
               <NavLink className='manage-line' to='/photocards/current'>
                 Manage Photocards
